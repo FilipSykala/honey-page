@@ -1,0 +1,36 @@
+{
+  "pages": [
+    "blog.html",
+    "galeria.html",
+    "index.html",
+    "informacje.html",
+    "logowanie.html",
+    "mapa-google-pszola.html",
+    "mapa.html",
+    "mapa2.html"
+  ],
+  "missing": [],
+  "inline": [],
+  "emptyLinks": [],
+  "originalMissing": [
+    "zdjecia/IMG_2210.JPG",
+    "zdjecia/IMG_2145.JPEG"
+  ],
+  "apiaries": 15,
+  "regions": [
+    "podkarpackie",
+    "lubelskie",
+    "podlaskie",
+    "pomorskie",
+    "mazowieckie",
+    "wielkopolskie",
+    "dolnoslaskie",
+    "warminsko-mazurskie",
+    "slaskie",
+    "malopolskie",
+    "kujawsko-pomorskie",
+    "zachodniopomorskie",
+    "swietokrzyskie",
+    "test"
+  ]
+}

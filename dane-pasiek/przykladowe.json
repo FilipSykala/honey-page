@@ -1,0 +1,689 @@
+[
+  {
+    "id": "pasieka-bieszczadzka-ostoja",
+    "name": "Pasieka Wędrowna „Bieszczadzka Ostoja”",
+    "beekeeper": "Mistrz Pszczelarski Janusz Bieszczad",
+    "city": "Ustrzyki Górne",
+    "region": "podkarpackie",
+    "lat": 49.1065,
+    "lng": 22.6482,
+    "address": "Ustrzyki Górne 24, 38-714 Lutowiska",
+    "bio": true,
+    "shipping": true,
+    "pickup": true,
+    "workshops": true,
+    "wandering": true,
+    "rating": 4.95,
+    "reviews": [
+      {
+        "author": "Michał K. z Rzeszowa",
+        "rating": 5,
+        "date": "2025-10-04",
+        "comment": "Prawdziwy bieszczadzki miód ze spadzi iglastej! Ciemny, gęsty i niesamowity aromat żywicy jodłowej. Kupuję co roku u p. Janusza."
+      },
+      {
+        "author": "Ewa D.",
+        "rating": 5,
+        "date": "2025-08-20",
+        "comment": "Rewelacyjna jakość i bezpośredni kontakt z pasieką."
+      }
+    ],
+    "description": "Przykładowa pasieka w miejscowości Ustrzyki Górne. Oferta obejmuje produkty wymienione poniżej. Dane pochodzą z prototypu i nie zostały potwierdzone u pszczelarza.",
+    "demo": true,
+    "photo": "assets/pasieka.webp",
+    "products": [
+      {
+        "name": "Miód ze Spadzi Iglastej (Jodłowy)",
+        "type": "spadziowy",
+        "sizes": [
+          "400g",
+          "900g",
+          "1200g"
+        ],
+        "price": "48 - 95 zł",
+        "available": true,
+        "taste": "Żywiczny, łagodny, lekko korzenny aromat, ciemnozielono-bursztynowy kolor."
+      },
+      {
+        "name": "Miód Mniszkowy z Bieszczad",
+        "type": "mniszkowy",
+        "sizes": [
+          "400g",
+          "900g"
+        ],
+        "price": "38 - 75 zł",
+        "available": true,
+        "taste": "Intensywnie żółty, wyrazisty, słodki z subtelną nutą kwiatową."
+      },
+      {
+        "name": "Pierzga Pszczela w Miodzie Jodłowym",
+        "type": "pierzga",
+        "sizes": [
+          "250g",
+          "450g"
+        ],
+        "price": "55 - 98 zł",
+        "available": true,
+        "taste": "Kwaskowato-słodki, głęboki, skoncentrowany smak."
+      }
+    ]
+  },
+  {
+    "id": "pasieka-lipowa-dolina",
+    "name": "Pasieka Tradycyjna „Lipowa Dolina”",
+    "beekeeper": "Agnieszka i Marek Wiśniewscy",
+    "city": "Kazimierz Dolny",
+    "region": "lubelskie",
+    "lat": 51.3204,
+    "lng": 21.9486,
+    "address": "ul. Góry 12, 24-120 Kazimierz Dolny",
+    "bio": false,
+    "shipping": true,
+    "pickup": true,
+    "workshops": true,
+    "wandering": false,
+    "rating": 4.9,
+    "reviews": [
+      {
+        "author": "Katarzyna W.",
+        "rating": 5,
+        "date": "2025-09-18",
+        "comment": "Cudowny miód lipowy, wyrazisty w smaku. Byliśmy z dziećmi na warsztatach w Kazimierzu – niezapomniane wrażenia!"
+      },
+      {
+        "author": "Piotr S.",
+        "rating": 5,
+        "date": "2025-07-11",
+        "comment": "Świetny kontakt z p. Markiem, słoiki idealnie zabezpieczone do wysyłki."
+      }
+    ],
+    "description": "Przykładowa pasieka w miejscowości Kazimierz Dolny. Oferta obejmuje produkty wymienione poniżej. Dane pochodzą z prototypu i nie zostały potwierdzone u pszczelarza.",
+    "demo": true,
+    "photo": "assets/pasieka.webp",
+    "products": [
+      {
+        "name": "Miód Lipowy Tradycyjny",
+        "type": "lipowy",
+        "sizes": [
+          "400g",
+          "900g"
+        ],
+        "price": "35 - 70 zł",
+        "available": true,
+        "taste": "Ostro-słodki, wyraźnie miętowy posmak, intensywny zapach kwiatu lipy."
+      },
+      {
+        "name": "Miód Faceliowy Jasny",
+        "type": "faceliowy",
+        "sizes": [
+          "400g",
+          "900g"
+        ],
+        "price": "32 - 62 zł",
+        "available": true,
+        "taste": "Bardzo delikatny, lekko kwaskowaty, aksamitny w smaku."
+      },
+      {
+        "name": "Pyłek Kwiatowy Suszony",
+        "type": "pylek",
+        "sizes": [
+          "200g",
+          "500g"
+        ],
+        "price": "25 - 55 zł",
+        "available": true,
+        "taste": "Kwiatowy, ziołowy posmak, chrupiące kuleczki."
+      }
+    ]
+  },
+  {
+    "id": "pasieka-puszcza-bialowieska",
+    "name": "Pasieka Leśna „Skarby Puszczy”",
+    "beekeeper": "Włodzimierz Sawicki",
+    "city": "Hajnówka",
+    "region": "podlaskie",
+    "lat": 52.7433,
+    "lng": 23.5811,
+    "address": "ul. Lipowa 45, 17-200 Hajnówka",
+    "bio": true,
+    "shipping": true,
+    "pickup": true,
+    "workshops": false,
+    "wandering": false,
+    "rating": 5,
+    "reviews": [
+      {
+        "author": "Tomasz B.",
+        "rating": 5,
+        "date": "2025-10-15",
+        "comment": "Czysta Puszcza Białowieska w słoiku. Propolis najwyższej klasy, rewelacyjnie działa na gardło."
+      }
+    ],
+    "description": "Przykładowa pasieka w miejscowości Hajnówka. Oferta obejmuje produkty wymienione poniżej. Dane pochodzą z prototypu i nie zostały potwierdzone u pszczelarza.",
+    "demo": true,
+    "photo": "assets/pasieka.webp",
+    "products": [
+      {
+        "name": "Miód Leśny z Puszczy Białowieskiej",
+        "type": "wielokwiatowy",
+        "sizes": [
+          "400g",
+          "900g",
+          "1250g"
+        ],
+        "price": "40 - 80 zł",
+        "available": true,
+        "taste": "Głęboki, ziołowo-żywiczny z nutą maliny leśnej i kruszyny."
+      },
+      {
+        "name": "Propolis Naturalny (Kit Pszczeli 100%)",
+        "type": "propolis",
+        "sizes": [
+          "50g",
+          "100g"
+        ],
+        "price": "30 - 55 zł",
+        "available": true,
+        "taste": "Intensywny, balsamiczny, żywiczny zapach."
+      }
+    ]
+  },
+  {
+    "id": "pasieka-roztoczanski-mrowie",
+    "name": "Pasieka Ekologiczna „Roztoczański Miód”",
+    "beekeeper": "Krzysztof i Barbara Kozak",
+    "city": "Zwierzyniec",
+    "region": "lubelskie",
+    "lat": 50.6145,
+    "lng": 22.9678,
+    "address": "ul. Zamojska 18, 22-470 Zwierzyniec",
+    "bio": true,
+    "shipping": true,
+    "pickup": true,
+    "workshops": true,
+    "wandering": true,
+    "rating": 4.88,
+    "reviews": [
+      {
+        "author": "Magdalena L.",
+        "rating": 5,
+        "date": "2025-08-30",
+        "comment": "Miód gryczany o niesamowitej mocy i aromacie! Najlepszy do pierników i codziennej herbaty."
+      },
+      {
+        "author": "Wojciech M.",
+        "rating": 4,
+        "date": "2025-06-19",
+        "comment": "Bardzo dobry miód nawłociowy, szybki odbiór na Roztoczu."
+      }
+    ],
+    "description": "Przykładowa pasieka w miejscowości Zwierzyniec. Oferta obejmuje produkty wymienione poniżej. Dane pochodzą z prototypu i nie zostały potwierdzone u pszczelarza.",
+    "demo": true,
+    "photo": "assets/pasieka.webp",
+    "products": [
+      {
+        "name": "Miód Gryczany Roztoczański BIO",
+        "type": "gryczany",
+        "sizes": [
+          "400g",
+          "900g"
+        ],
+        "price": "38 - 72 zł",
+        "available": true,
+        "taste": "Ciemnobrązowy, bardzo wyrazisty, ostry, z charakterystyczną nutą gryki."
+      },
+      {
+        "name": "Miód Nawłociowy (Polski Manuka)",
+        "type": "nawlociowy",
+        "sizes": [
+          "400g",
+          "900g"
+        ],
+        "price": "36 - 68 zł",
+        "available": true,
+        "taste": "Słodko-kwaskowaty, puszysty po skrystalizowaniu (jak krem)."
+      }
+    ]
+  },
+  {
+    "id": "pasieka-kaszubska-przystan",
+    "name": "Pasieka Kaszubska „Miodowy Raj”",
+    "beekeeper": "Tadeusz Klawikowski",
+    "city": "Kartuzy",
+    "region": "pomorskie",
+    "lat": 54.3341,
+    "lng": 18.1974,
+    "address": "ul. Parkowa 5, 83-300 Kartuzy",
+    "bio": false,
+    "shipping": true,
+    "pickup": true,
+    "workshops": true,
+    "wandering": true,
+    "rating": null,
+    "reviews": [],
+    "description": "Przykładowa pasieka w miejscowości Kartuzy. Oferta obejmuje produkty wymienione poniżej. Dane pochodzą z prototypu i nie zostały potwierdzone u pszczelarza.",
+    "demo": true,
+    "photo": "assets/pasieka.webp",
+    "products": [
+      {
+        "name": "Miód Wrzosowy z Kaszub (Królewski)",
+        "type": "wrzosowy",
+        "sizes": [
+          "400g",
+          "900g"
+        ],
+        "price": "55 - 110 zł",
+        "available": true,
+        "taste": "Galaretowata konsystencja, rubinowy kolor, wykwintny gorzkawy posmak wrzosu."
+      },
+      {
+        "name": "Miód Rzepakowy Kremowany",
+        "type": "rzepakowy",
+        "sizes": [
+          "400g",
+          "900g",
+          "1200g"
+        ],
+        "price": "28 - 52 zł",
+        "available": true,
+        "taste": "Kremowa konsystencja masła, białawo-kremowy kolor, bardzo słodki i delikatny."
+      },
+      {
+        "name": "Świece z Czystego Wosku Pszczelego",
+        "type": "swiece",
+        "sizes": [
+          "Zestaw 3 szt."
+        ],
+        "price": "35 zł",
+        "available": true,
+        "taste": "Niezwykły, kojący aromat miodu i propolisu podczas palenia."
+      }
+    ]
+  },
+  {
+    "id": "pasieka-mazowiecka-dolina",
+    "name": "Pasieka Mazowiecka „Nektar Kurpiowski”",
+    "beekeeper": "Stanisław Kurpiewski",
+    "city": "Ostrołęka",
+    "region": "mazowieckie",
+    "lat": 53.0854,
+    "lng": 21.5721,
+    "address": "ul. Kurpiowska 14, 07-410 Ostrołęka",
+    "bio": false,
+    "shipping": true,
+    "pickup": true,
+    "workshops": false,
+    "wandering": false,
+    "rating": null,
+    "reviews": [],
+    "description": "Przykładowa pasieka w miejscowości Ostrołęka. Oferta obejmuje produkty wymienione poniżej. Dane pochodzą z prototypu i nie zostały potwierdzone u pszczelarza.",
+    "demo": true,
+    "photo": "assets/pasieka.webp",
+    "products": [
+      {
+        "name": "Miód Akacjowy Kurpiowski",
+        "type": "akacjowy",
+        "sizes": [
+          "400g",
+          "900g"
+        ],
+        "price": "36 - 70 zł",
+        "available": true,
+        "taste": "Prawie przezroczysty, bardzo jasny, delikatny, krystalizuje najwolniej."
+      },
+      {
+        "name": "Miód Wielokwiatowy Wiosenny",
+        "type": "wielokwiatowy",
+        "sizes": [
+          "400g",
+          "900g"
+        ],
+        "price": "30 - 58 zł",
+        "available": true,
+        "taste": "Słodki, bukiet kwiatów łąkowych, łagodny."
+      }
+    ]
+  },
+  {
+    "id": "pasieka-wielkopolska-zloty-ul",
+    "name": "Gospodarstwo Pasieczne „Złoty Ul”",
+    "beekeeper": "Tomasz i Zofia Kaczmarek",
+    "city": "Gniezno",
+    "region": "wielkopolskie",
+    "lat": 52.5348,
+    "lng": 17.5826,
+    "address": "ul. Piastowska 88, 62-200 Gniezno",
+    "bio": true,
+    "shipping": true,
+    "pickup": true,
+    "workshops": true,
+    "wandering": true,
+    "rating": null,
+    "reviews": [],
+    "description": "Przykładowa pasieka w miejscowości Gniezno. Oferta obejmuje produkty wymienione poniżej. Dane pochodzą z prototypu i nie zostały potwierdzone u pszczelarza.",
+    "demo": true,
+    "photo": "assets/pasieka.webp",
+    "products": [
+      {
+        "name": "Miód Lipowy Szlachetny",
+        "type": "lipowy",
+        "sizes": [
+          "400g",
+          "900g",
+          "1250g"
+        ],
+        "price": "35 - 72 zł",
+        "available": true,
+        "taste": "Intensywny aromat, lekka pikantność na finiszu."
+      },
+      {
+        "name": "Świeży Pyłek Pszczeli Zamrożony",
+        "type": "pylek",
+        "sizes": [
+          "250g",
+          "500g"
+        ],
+        "price": "30 - 60 zł",
+        "available": true,
+        "taste": "Miękki, maksymalnie zachowane enzymy roślinne."
+      }
+    ]
+  },
+  {
+    "id": "pasieka-dolnoslaska-slezanska",
+    "name": "Pasieka Pod Ślężą „Szlakiem Pszczół”",
+    "beekeeper": "Michał i Ewa Jaworscy",
+    "city": "Sobótka",
+    "region": "dolnoslaskie",
+    "lat": 50.8986,
+    "lng": 16.7444,
+    "address": "ul. Słoneczna 10, 55-050 Sobótka",
+    "bio": true,
+    "shipping": true,
+    "pickup": true,
+    "workshops": true,
+    "wandering": false,
+    "rating": null,
+    "reviews": [],
+    "description": "Przykładowa pasieka w miejscowości Sobótka. Oferta obejmuje produkty wymienione poniżej. Dane pochodzą z prototypu i nie zostały potwierdzone u pszczelarza.",
+    "demo": true,
+    "photo": "assets/pasieka.webp",
+    "products": [
+      {
+        "name": "Miód w Dziewiczym Plastrze (Sekcyjny)",
+        "type": "wielokwiatowy",
+        "sizes": [
+          "Ramka ok. 350g"
+        ],
+        "price": "45 zł",
+        "available": true,
+        "taste": "Najczystsza postać miodu prosto z ula, żuje się razem z woskiem."
+      },
+      {
+        "name": "Miód Akacjowy ze Wzgórz Ślężańskich",
+        "type": "akacjowy",
+        "sizes": [
+          "400g",
+          "900g"
+        ],
+        "price": "38 - 74 zł",
+        "available": true,
+        "taste": "Niezwykle słodki, waniliowo-kwiatowy."
+      }
+    ]
+  },
+  {
+    "id": "pasieka-warminska-cud-natury",
+    "name": "Pasieka Warmińska „Leśna Przystań”",
+    "beekeeper": "Piotr Nowicki",
+    "city": "Olsztynek",
+    "region": "warminsko-mazurskie",
+    "lat": 53.5852,
+    "lng": 20.2811,
+    "address": "ul. Leśna 3, 11-015 Olsztynek",
+    "bio": true,
+    "shipping": true,
+    "pickup": true,
+    "workshops": false,
+    "wandering": true,
+    "rating": null,
+    "reviews": [],
+    "description": "Przykładowa pasieka w miejscowości Olsztynek. Oferta obejmuje produkty wymienione poniżej. Dane pochodzą z prototypu i nie zostały potwierdzone u pszczelarza.",
+    "demo": true,
+    "photo": "assets/pasieka.webp",
+    "products": [
+      {
+        "name": "Miód Chabrowy z Warmii",
+        "type": "wielokwiatowy",
+        "sizes": [
+          "400g",
+          "900g"
+        ],
+        "price": "42 - 82 zł",
+        "available": true,
+        "taste": "Bursztynowy z seledynowym odcieniem, migdałowo-kwiatowy."
+      },
+      {
+        "name": "Miód ze Spadzi Liściastej (Dębowo-Lipowy)",
+        "type": "spadziowy",
+        "sizes": [
+          "400g",
+          "900g"
+        ],
+        "price": "45 - 88 zł",
+        "available": true,
+        "taste": "Łagodny, ciemny, lekko karmelowy."
+      }
+    ]
+  },
+  {
+    "id": "pasieka-slaska-beskidzka",
+    "name": "Pasieka Górska „Beskidzki Barć”",
+    "beekeeper": "Wojciech i Anna Cader",
+    "city": "Żywiec",
+    "region": "slaskie",
+    "lat": 49.6888,
+    "lng": 19.1956,
+    "address": "ul. Górska 44, 34-300 Żywiec",
+    "bio": true,
+    "shipping": true,
+    "pickup": true,
+    "workshops": true,
+    "wandering": true,
+    "rating": null,
+    "reviews": [],
+    "description": "Przykładowa pasieka w miejscowości Żywiec. Oferta obejmuje produkty wymienione poniżej. Dane pochodzą z prototypu i nie zostały potwierdzone u pszczelarza.",
+    "demo": true,
+    "photo": "assets/pasieka.webp",
+    "products": [
+      {
+        "name": "Miód Spadziowy ze Świerków Beskidzkich",
+        "type": "spadziowy",
+        "sizes": [
+          "400g",
+          "900g"
+        ],
+        "price": "50 - 98 zł",
+        "available": true,
+        "taste": "Ciemny, żywiczny, głęboki smak z nutami leśnymi."
+      },
+      {
+        "name": "Miód z Maliny Leśnej",
+        "type": "malinowy",
+        "sizes": [
+          "400g",
+          "900g"
+        ],
+        "price": "42 - 80 zł",
+        "available": false,
+        "taste": "Kremowy, owocowy, lekko kwaskowaty aromat."
+      }
+    ]
+  },
+  {
+    "id": "pasieka-malopolska-tatrzanska",
+    "name": "Pasieka Podhalańska „Harnaś”",
+    "beekeeper": "Józef Gąsienica",
+    "city": "Nowy Targ",
+    "region": "malopolskie",
+    "lat": 49.4842,
+    "lng": 20.0322,
+    "address": "ul. Kowaniec 102, 34-400 Nowy Targ",
+    "bio": false,
+    "shipping": true,
+    "pickup": true,
+    "workshops": true,
+    "wandering": false,
+    "rating": null,
+    "reviews": [],
+    "description": "Przykładowa pasieka w miejscowości Nowy Targ. Oferta obejmuje produkty wymienione poniżej. Dane pochodzą z prototypu i nie zostały potwierdzone u pszczelarza.",
+    "demo": true,
+    "photo": "assets/pasieka.webp",
+    "products": [
+      {
+        "name": "Miód Mniszkowy Podhalański",
+        "type": "mniszkowy",
+        "sizes": [
+          "400g",
+          "900g"
+        ],
+        "price": "36 - 72 zł",
+        "available": true,
+        "taste": "Gęsty, złocisty, słodki z ziołowym posmakiem."
+      },
+      {
+        "name": "Pierzga Pszczela Czysta (Ziarna)",
+        "type": "pierzga",
+        "sizes": [
+          "100g",
+          "250g"
+        ],
+        "price": "40 - 90 zł",
+        "available": true,
+        "taste": "Chlebowo-kwaskowata, intensywna."
+      }
+    ]
+  },
+  {
+    "id": "pasieka-kujawska-sloneczna",
+    "name": "Pasieka Kujawska „Kropla Złota”",
+    "beekeeper": "Waldemar Cieślak",
+    "city": "Inowrocław",
+    "region": "kujawsko-pomorskie",
+    "lat": 52.7981,
+    "lng": 18.2639,
+    "address": "ul. Solankowa 55, 88-100 Inowrocław",
+    "bio": false,
+    "shipping": true,
+    "pickup": true,
+    "workshops": false,
+    "wandering": true,
+    "rating": null,
+    "reviews": [],
+    "description": "Przykładowa pasieka w miejscowości Inowrocław. Oferta obejmuje produkty wymienione poniżej. Dane pochodzą z prototypu i nie zostały potwierdzone u pszczelarza.",
+    "demo": true,
+    "photo": "assets/pasieka.webp",
+    "products": [
+      {
+        "name": "Miód Faceliowy Kujawski",
+        "type": "faceliowy",
+        "sizes": [
+          "400g",
+          "900g"
+        ],
+        "price": "32 - 64 zł",
+        "available": true,
+        "taste": "Kwiatowy, delikatnie cytrusowy, orzeźwiający."
+      }
+    ]
+  },
+  {
+    "id": "pasieka-drawskie-drahim",
+    "name": "Pasieka Tradycyjna „Miody Drahimskie”",
+    "beekeeper": "Grzegorz i Maria Fujarscy",
+    "city": "Czaplinek",
+    "region": "zachodniopomorskie",
+    "lat": 53.5578,
+    "lng": 16.2317,
+    "address": "ul. Drahimska 8, 78-550 Czaplinek",
+    "bio": true,
+    "shipping": true,
+    "pickup": true,
+    "workshops": true,
+    "wandering": true,
+    "rating": null,
+    "reviews": [],
+    "description": "Przykładowa pasieka w miejscowości Czaplinek. Oferta obejmuje produkty wymienione poniżej. Dane pochodzą z prototypu i nie zostały potwierdzone u pszczelarza.",
+    "demo": true,
+    "photo": "assets/pasieka.webp",
+    "products": [
+      {
+        "name": "Miód Wrzosowy z Pojezierza Drawskiego ChOG",
+        "type": "wrzosowy",
+        "sizes": [
+          "400g",
+          "900g"
+        ],
+        "price": "50 - 100 zł",
+        "available": true,
+        "taste": "Wyrazisty, głęboki aromat wrzosu, rubinowo-bursztynowy."
+      },
+      {
+        "name": "Miód Lipowy Drahimski ChOG",
+        "type": "lipowy",
+        "sizes": [
+          "400g",
+          "900g"
+        ],
+        "price": "36 - 72 zł",
+        "available": true,
+        "taste": "Ostry, miętowy, zapach kwitnącej lipy."
+      }
+    ]
+  },
+  {
+    "id": "pasieka-swietokrzyska-puszcza",
+    "name": "Pasieka Świętokrzyska „Łysogórski Nektar”",
+    "beekeeper": "Andrzej i Danuta Kozłowscy",
+    "city": "Święta Katarzyna",
+    "region": "swietokrzyskie",
+    "lat": 50.9069,
+    "lng": 20.88,
+    "address": "ul. Kielecka 19, 26-010 Bodzentyn",
+    "bio": true,
+    "shipping": true,
+    "pickup": true,
+    "workshops": true,
+    "wandering": false,
+    "rating": null,
+    "reviews": [],
+    "description": "Przykładowa pasieka w miejscowości Święta Katarzyna. Oferta obejmuje produkty wymienione poniżej. Dane pochodzą z prototypu i nie zostały potwierdzone u pszczelarza.",
+    "demo": true,
+    "photo": "assets/pasieka.webp",
+    "products": [
+      {
+        "name": "Miód ze Spadzi Jodłowej z Puszczy Jodłowej",
+        "type": "spadziowy",
+        "sizes": [
+          "400g",
+          "900g",
+          "1200g"
+        ],
+        "price": "46 - 92 zł",
+        "available": true,
+        "taste": "Ciemnozielony, żywiczny, szlachetny bukiet."
+      },
+      {
+        "name": "Pyłek Pszczeli Łysogórski",
+        "type": "pylek",
+        "sizes": [
+          "250g",
+          "500g"
+        ],
+        "price": "28 - 56 zł",
+        "available": true,
+        "taste": "Kwiatowy, delikatny, ziół świętokrzyskich."
+      }
+    ]
+  }
+]

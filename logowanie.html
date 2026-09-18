@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Miodna Mapa Polski — poznaj odmiany miodu, przeglądaj pasieki i przygotuj własną wizytówkę.">
+    <title>Moje pasieki · Miodna Mapa</title>
+    <link rel="icon" href="assets/fav2.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="vendor/leaflet.css">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="vendor/leaflet.js">
+    </script>
+    <script defer src="https://kit.fontawesome.com/5535fb1062.js" crossorigin="anonymous"></script>
+    <script defer src="script.js">
+    </script>
+  </head>
+  <body data-page="panel">
+    <a class="skip" href="#main">Przejdź do treści</a>
+    <header class="header">
+      <div class="container nav-wrap">
+        <a class="brand" href="index.html">
+          <img class="brand-mark" src="assets/fav2.svg" alt="">
+          <span>Miodna Mapa<small>POLSKI</small>
+        </span>
+      </a>
+      <button class="menu-toggle secondary" aria-expanded="false" aria-controls="navigation"><i class="fa-solid fa-bars ui-icon" aria-hidden="true"></i><span>Menu</span></button>
+      <nav id="navigation" aria-label="Główna nawigacja">
+        <a href="mapa.html" id="mapa-pasiek">Mapa pasiek</a>
+        <a href="index.html#katalog">Katalog produktów</a>
+        <a href="index.html#vademecum">O miodzie</a>
+        <a class="mobile-panel-link" href="logowanie.html">Dla pszczelarzy</a>
+        <a href="blog.html" >Dziennik</a>
+      </nav>
+      <a class="button nav-cta" href="logowanie.html"><i class="fa-solid fa-address-card ui-icon" aria-hidden="true"></i><span>Dla pszczelarzy</span>
+    </a>
+  </div>
+</header>
+<main id="main" class="container section">
+  <div class="page-heading">
+    <div>
+      <p class="eyebrow">DLA PSZCZELARZY</p>
+      <h1>Twoja pasieka.<br>
+      <em>Twoja wizytówka.</em>
+    </h1>
+  </div>
+</div>
+<p class="notice">Opublikowane pasieki, zdjęcia i dane kontaktowe są widoczne dla wszystkich odwiedzających. Dostęp do edycji Twoich wpisów jest zapisany w tej przeglądarce. Wcześniejsze lokalne wpisy zostaną przeniesione na wspólną mapę.</p>
+<section aria-labelledby="owned-title">
+  <div class="section-heading">
+    <h2 id="owned-title">Moje pasieki</h2>
+    <button id="export" type="button" class="secondary"><i class="fa-solid fa-download ui-icon" aria-hidden="true"></i><span>Pobierz kopię<span class="compact-omit"> wpisów</span></span></button>
+  </div>
+  <div id="owned-list" class="owned-list">
+  </div>
+</section>
+<button id="start-apiary" type="button" class="button" aria-controls="dodaj" aria-expanded="false">Dodaj pasiekę</button>
+<section hidden id="dodaj" class="editor-section">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">POKAŻ, CO TWORZYSZ</p>
+      <h2 id="editor-title">Dodaj pasiekę</h2>
+    </div>
+  </div>
+  <div id="apiary-progress" class="apiary-progress" role="progressbar" aria-label="Postęp formularza" aria-valuemin="0" aria-valuemax="5" aria-valuenow="1"><span></span></div>
+  <p id="apiary-step-status" role="status"></p>
+  <div class="editor-layout">
+    <form id="apiary-form" novalidate>
+      <p>Pola oznaczone * są wymagane.</p>
+      <section class="apiary-step" aria-labelledby="step-title-1">
+        <h3 id="step-title-1" tabindex="-1">Podstawowe informacje</h3>
+      <div class="two-cols">
+        <div class="field">
+          <label for="name">Nazwa pasieki *</label>
+          <input id="name" name="name" required maxlength="100" autocomplete="organization">
+        </div>
+        <div class="field">
+          <label for="beekeeper">Pszczelarz / pszczelarka *</label>
+          <input id="beekeeper" name="beekeeper" required maxlength="100" autocomplete="name">
+        </div>
+      </div>
+      </section>
+      <section class="apiary-step" hidden aria-labelledby="step-title-2">
+        <h3 id="step-title-2" tabindex="-1">Lokalizacja</h3>
+      <div class="two-cols">
+        <div class="field">
+          <label for="city">Miejscowość *</label>
+          <input id="city" name="city" required maxlength="100" autocomplete="address-level2">
+        </div>
+        <div class="field">
+          <label for="apiary-region">Województwo *</label>
+          <select id="apiary-region" name="region" required>
+            <option value="">Wybierz województwo</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label for="address">Adres *</label>
+        <input id="address" name="address" required maxlength="180" autocomplete="street-address">
+      </div>
+      <fieldset>
+        <legend>Lokalizacja na mapie *</legend>
+        <p class="meta">Kliknij mapę lub wpisz współrzędne. Wpisz adres powyżej — nie ustalamy go automatycznie.</p>
+        <div id="pin-map" aria-label="Wybór lokalizacji pasieki" tabindex="0">
+        </div>
+        <p id="pin-status" class="meta" role="status">
+        </p>
+        <div class="two-cols">
+          <div class="field">
+            <label for="lat">Szerokość geograficzna (49–55)</label>
+            <input id="lat" name="lat" type="number" required min="49" max="55" step="any" placeholder="np. 52.2297">
+          </div>
+          <div class="field">
+            <label for="lng">Długość geograficzna (14–24,2)</label>
+            <input id="lng" name="lng" type="number" required min="14" max="24.2" step="any" placeholder="np. 21.0122">
+          </div>
+        </div>
+      </fieldset>
+      </section>
+      <section class="apiary-step" hidden aria-labelledby="step-title-3">
+        <h3 id="step-title-3" tabindex="-1">Kontakt</h3>
+      <div class="two-cols">
+        <div class="field">
+          <label for="phone">Telefon *</label>
+          <input id="phone" name="phone" type="tel" required maxlength="20" autocomplete="tel" placeholder="np. +48 600 000 000">
+        </div>
+        <div class="field">
+          <label for="email">E-mail</label>
+          <input id="email" name="email" type="email" maxlength="120" autocomplete="email">
+        </div>
+      </div>
+      <div class="field">
+        <label for="wni">WNI (jeśli posiadasz)</label>
+        <input id="wni" name="wni" maxlength="30">
+        <small>Wpisanie numeru nie oznacza jego weryfikacji.</small>
+      </div>
+      </section>
+      <section class="apiary-step" hidden aria-labelledby="step-title-4">
+        <h3 id="step-title-4" tabindex="-1">Opis i zdjęcie</h3>
+        <p class="meta">Te informacje są opcjonalne. Możesz przejść dalej bez ich uzupełniania.</p>
+      <div class="field">
+        <label for="description">Opis pasieki</label>
+        <textarea id="description" name="description" rows="4" maxlength="1600" placeholder="Opowiedz o pasiece i sposobie odbioru produktów.">
+        </textarea>
+      </div>
+      <div class="field">
+        <label for="photo">Zdjęcie pasieki</label>
+        <input id="photo" type="file" accept="image/jpeg,image/png,image/webp">
+        <small>JPG, PNG lub WebP, maksymalnie 5 MB.</small>
+        <p id="photo-status" role="status">
+        </p>
+        <button id="remove-photo" type="button" class="text-button" hidden>Usuń zdjęcie</button>
+      </div>
+      </section>
+      <section class="apiary-step" hidden aria-labelledby="step-title-5">
+        <h3 id="step-title-5" tabindex="-1">Oferta i odbiór</h3>
+      <fieldset>
+        <legend>Oferowane produkty * (wybierz co najmniej jeden)</legend>
+        <div id="product-checkboxes" class="checkbox-grid">
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Odbiór i cechy pasieki</legend>
+        <div class="checkbox-grid">
+          <label>
+            <input type="checkbox" name="shipping"> Wysyłka</label>
+            <label>
+              <input type="checkbox" name="pickup" checked> Odbiór osobisty</label>
+              <label>
+                <input type="checkbox" name="bio"> Deklaruję certyfikat BIO</label>
+                <label>
+                  <input type="checkbox" name="workshops"> Warsztaty</label>
+                  <label>
+                    <input type="checkbox" name="wandering"> Pasieka wędrowna</label>
+                  </div>
+                </fieldset>
+      </section>
+                <p id="form-message" class="form-message" role="alert" tabindex="-1">
+                </p>
+                <div class="actions">
+                  <button class="secondary" id="apiary-back" type="button">Powróć</button>
+                  <button class="button" id="apiary-next" type="button" disabled>Kontynuuj</button>
+                  <button hidden class="button" id="save-apiary" type="submit"><i class="fa-solid fa-floppy-disk ui-icon" aria-hidden="true"></i><span>Opublikuj pasiekę</span></button>
+                  <button class="secondary" id="cancel-edit" type="button" hidden>Anuluj edycję</button>
+                </div>
+              </form>
+              <aside class="preview">
+                <p class="eyebrow">PODGLĄD WIZYTÓWKI</p>
+                <img id="preview-photo" src="assets/pasieka.webp" alt="Ilustracja pasieki — domyślna okładka">
+                <div class="preview-body">
+                  <span class="tag">Twoja wizytówka</span>
+                  <h3 id="preview-name">Nazwa Twojej pasieki</h3>
+                  <p id="preview-city">Miejscowość</p>
+                  <p id="preview-description">Tutaj pojawi się opis Twojej pasieki.</p>
+                  <div id="preview-products" class="chips">
+                  </div>
+                </div>
+              </aside>
+            </div>
+          </section>
+        </main>
+        <footer class="footer">
+          <div class="container footer-top">
+            <div>
+              <a class="brand" href="index.html">Miodna Mapa</a>
+              <p>Bliżej pszczół. Bliżej lokalnych smaków.</p>
+            </div>
+            <nav aria-label="Nawigacja w stopce">
+              <a href="mapa.html">Znajdź pasiekę</a>
+              <a href="galeria.html">Galeria</a>
+              <a href="logowanie.html">Moje pasieki</a>
+              <a href="informacje.html">O danych i prywatności</a>
+            </nav>
+          </div>
+          <div class="container footer-bottom">
+            <span>© 2026 Miodna Mapa Polski</span>
+            <span>Wspólna mapa pasiek · wpisy przykładowe oznaczono w katalogu.</span>
+          </div>
+        </footer>
+        <dialog id="detail" aria-labelledby="dialog-title">
+          <div class="dialog-toolbar">
+            <button class="secondary" data-close><i class="fa-solid fa-xmark ui-icon" aria-hidden="true"></i><span>Zamknij</span>
+          </button>
+        </div>
+        <div id="detail-content">
+        </div>
+      </dialog>
+      <dialog id="lightbox" aria-labelledby="photo-caption">
+        <div class="dialog-toolbar">
+          <button class="secondary" data-close><i class="fa-solid fa-xmark ui-icon" aria-hidden="true"></i><span>Zamknij<span class="compact-omit"> zdjęcie</span></span></button>
+        </div>
+        <img id="large-photo" src="assets/krajobraz.webp" alt="">
+        <div class="photo-controls">
+          <button class="secondary" id="photo-prev" aria-label="Poprzednie zdjęcie"><span class="photo-arrow" aria-hidden="true">←</span><i class="fa-solid fa-chevron-left ui-icon" aria-hidden="true"></i></button>
+          <p id="photo-caption">
+          </p>
+          <button class="secondary" id="photo-next" aria-label="Następne zdjęcie"><span class="photo-arrow" aria-hidden="true">→</span><i class="fa-solid fa-chevron-right ui-icon" aria-hidden="true"></i></button>
+        </div>
+      </dialog>
+     
+      </div>
+      <noscript>
+        <p class="notice container">Włącz JavaScript, aby korzystać z wyszukiwarki, mapy i formularzy. Poradnik na stronie głównej pozostaje dostępny.</p>
+      </noscript>
+    </body>
+  </html>

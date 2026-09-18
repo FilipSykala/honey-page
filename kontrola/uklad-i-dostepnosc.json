@@ -1,0 +1,288 @@
+{
+  "rows": [
+    {
+      "width": 360,
+      "route": "index.html",
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "missingAlt": 0,
+      "unlabelledInputs": [],
+      "emptyLinks": []
+    },
+    {
+      "width": 360,
+      "route": "mapa.html",
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "missingAlt": 0,
+      "unlabelledInputs": [],
+      "emptyLinks": []
+    },
+    {
+      "width": 360,
+      "route": "blog.html",
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "missingAlt": 0,
+      "unlabelledInputs": [],
+      "emptyLinks": []
+    },
+    {
+      "width": 360,
+      "route": "logowanie.html",
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "missingAlt": 0,
+      "unlabelledInputs": [],
+      "emptyLinks": []
+    },
+    {
+      "width": 360,
+      "route": "galeria.html",
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "missingAlt": 0,
+      "unlabelledInputs": [],
+      "emptyLinks": []
+    },
+    {
+      "width": 360,
+      "route": "informacje.html",
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "missingAlt": 0,
+      "unlabelledInputs": [],
+      "emptyLinks": []
+    },
+    {
+      "width": 768,
+      "route": "index.html",
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "missingAlt": 0,
+      "unlabelledInputs": [],
+      "emptyLinks": []
+    },
+    {
+      "width": 768,
+      "route": "mapa.html",
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "missingAlt": 0,
+      "unlabelledInputs": [],
+      "emptyLinks": []
+    },
+    {
+      "width": 768,
+      "route": "blog.html",
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "missingAlt": 0,
+      "unlabelledInputs": [],
+      "emptyLinks": []
+    },
+    {
+      "width": 768,
+      "route": "logowanie.html",
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "missingAlt": 0,
+      "unlabelledInputs": [],
+      "emptyLinks": []
+    },
+    {
+      "width": 768,
+      "route": "galeria.html",
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "missingAlt": 0,
+      "unlabelledInputs": [],
+      "emptyLinks": []
+    },
+    {
+      "width": 768,
+      "route": "informacje.html",
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "missingAlt": 0,
+      "unlabelledInputs": [],
+      "emptyLinks": []
+    },
+    {
+      "width": 1024,
+      "route": "index.html",
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "missingAlt": 0,
+      "unlabelledInputs": [],
+      "emptyLinks": []
+    },
+    {
+      "width": 1024,
+      "route": "mapa.html",
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "missingAlt": 0,
+      "unlabelledInputs": [],
+      "emptyLinks": []
+    },
+    {
+      "width": 1024,
+      "route": "blog.html",
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "missingAlt": 0,
+      "unlabelledInputs": [],
+      "emptyLinks": []
+    },
+    {
+      "width": 1024,
+      "route": "logowanie.html",
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "missingAlt": 0,
+      "unlabelledInputs": [],
+      "emptyLinks": []
+    },
+    {
+      "width": 1024,
+      "route": "galeria.html",
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "missingAlt": 0,
+      "unlabelledInputs": [],
+      "emptyLinks": []
+    },
+    {
+      "width": 1024,
+      "route": "informacje.html",
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "missingAlt": 0,
+      "unlabelledInputs": [],
+      "emptyLinks": []
+    },
+    {
+      "width": 1440,
+      "route": "index.html",
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "missingAlt": 0,
+      "unlabelledInputs": [],
+      "emptyLinks": []
+    },
+    {
+      "width": 1440,
+      "route": "mapa.html",
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "missingAlt": 0,
+      "unlabelledInputs": [],
+      "emptyLinks": []
+    },
+    {
+      "width": 1440,
+      "route": "blog.html",
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "missingAlt": 0,
+      "unlabelledInputs": [],
+      "emptyLinks": []
+    },
+    {
+      "width": 1440,
+      "route": "logowanie.html",
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "missingAlt": 0,
+      "unlabelledInputs": [],
+      "emptyLinks": []
+    },
+    {
+      "width": 1440,
+      "route": "galeria.html",
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "missingAlt": 0,
+      "unlabelledInputs": [],
+      "emptyLinks": []
+    },
+    {
+      "width": 1440,
+      "route": "informacje.html",
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "missingAlt": 0,
+      "unlabelledInputs": [],
+      "emptyLinks": []
+    }
+  ],
+  "errors": [],
+  "responses": [],
+  "contrasts": [
+    {
+      "name": "ink/paper",
+      "ratio": 13.505816913295495
+    },
+    {
+      "name": "muted/paper",
+      "ratio": 5.677073234441838
+    },
+    {
+      "name": "button",
+      "ratio": 7.763190065543499
+    },
+    {
+      "name": "green/paper",
+      "ratio": 9.02931074312682
+    },
+    {
+      "name": "hero italic",
+      "ratio": 5.698686419196994
+    },
+    {
+      "name": "knowledge text",
+      "ratio": 7.554044161106684
+    },
+    {
+      "name": "footer text",
+      "ratio": 8.05702481106442
+    },
+    {
+      "name": "error",
+      "ratio": 5.771664395316471
+    }
+  ],
+  "additional": [
+    "All 15 products after expanding",
+    "Native dialog focus trap",
+    "200% font size: no horizontal overflow at 1440",
+    "Reduced motion",
+    "Legacy map redirects",
+    "Direct file opening and search"
+  ]
+}

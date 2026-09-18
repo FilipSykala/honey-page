@@ -1,0 +1,50 @@
+<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Light comes from above; the inner faces deepen near adjacent cubes. -->
+    <linearGradient id="amber-top" x1="32" y1="4" x2="32" y2="20" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F39B30"/><stop offset="1" stop-color="#D97706"/>
+    </linearGradient>
+    <linearGradient id="amber-left" x1="18" y1="12" x2="32" y2="36" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D97706"/><stop offset="1" stop-color="#A64D05"/>
+    </linearGradient>
+    <linearGradient id="amber-right" x1="46" y1="12" x2="32" y2="36" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#BF6208"/><stop offset="1" stop-color="#854007"/>
+    </linearGradient>
+    <linearGradient id="cream-top" x1="12" y1="39" x2="23" y2="29" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF6DD"/><stop offset=".55" stop-color="#FAEDC7"/><stop offset="1" stop-color="#D9BF85"/>
+    </linearGradient>
+    <linearGradient id="cream-left" x1="4" y1="36" x2="18" y2="60" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FAEDC7"/><stop offset="1" stop-color="#E0C991"/>
+    </linearGradient>
+    <linearGradient id="cream-inner" x1="18" y1="49" x2="32" y2="44" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D8BD7E"/><stop offset="1" stop-color="#B49350"/>
+    </linearGradient>
+    <linearGradient id="gold-top" x1="53" y1="39" x2="39" y2="29" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F7CD6C"/><stop offset=".55" stop-color="#EDB640"/><stop offset="1" stop-color="#C18A23"/>
+    </linearGradient>
+    <linearGradient id="gold-inner" x1="46" y1="49" x2="32" y2="44" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D89C2E"/><stop offset="1" stop-color="#A86C14"/>
+    </linearGradient>
+    <linearGradient id="gold-right" x1="60" y1="36" x2="46" y2="60" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#EDB640"/><stop offset="1" stop-color="#C58B22"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(0, -0.6)">
+    <path d="M32 4L45.8564 12V28L32 36L18.1436 28V12Z" fill="#D97706"/>
+    <path d="M32 4L45.8564 12L32 20L18.1436 12Z" fill="url(#amber-top)"/>
+    <path d="M18.1436 12L32 20V36L18.1436 28Z" fill="url(#amber-left)"/>
+    <path d="M32 20L45.8564 12V28L32 36Z" fill="url(#amber-right)"/>
+  </g>
+  <g transform="translate(-0.6, 0.75)">
+    <path d="M18 28L31.8564 36V52L18 60L4.14359 52V36Z" fill="#FAEDC7"/>
+    <path d="M18 28L31.8564 36L18 44L4.14359 36Z" fill="url(#cream-top)"/>
+    <path d="M4.14359 36L18 44V60L4.14359 52Z" fill="url(#cream-left)"/>
+    <path d="M18 44L31.8564 36V52L18 60Z" fill="url(#cream-inner)"/>
+  </g>
+  <g transform="translate(0.6, 0.75)">
+    <path d="M46 28L59.8564 36V52L46 60L32.1436 52V36Z" fill="#EDB640"/>
+    <path d="M46 28L59.8564 36L46 44L32.1436 36Z" fill="url(#gold-top)"/>
+    <path d="M32.1436 36L46 44V60L32.1436 52Z" fill="url(#gold-inner)"/>
+    <path d="M46 44L59.8564 36V52L46 60Z" fill="url(#gold-right)"/>
+  </g>
+</svg>

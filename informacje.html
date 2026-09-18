@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="pl">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+    content="Miodna Mapa Polski — poznaj odmiany miodu, przeglądaj pasieki i przygotuj własną wizytówkę.">
+  <title>O danych i prywatności · Miodna Mapa</title>
+  <link rel="icon" href="assets/fav2.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="https://kit.fontawesome.com/5535fb1062.js" crossorigin="anonymous"></script>
+  <script defer src="script.js">
+  </script>
+</head>
+
+<body data-page="info">
+  <a class="skip" href="#main">Przejdź do treści</a>
+  <header class="header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html">
+        <img class="brand-mark" src="assets/fav2.svg" alt="">
+        <span>Miodna Mapa<small>POLSKI</small>
+        </span>
+      </a>
+      <button class="menu-toggle secondary" aria-expanded="false" aria-controls="navigation"><i
+          class="fa-solid fa-bars ui-icon" aria-hidden="true"></i><span>Menu</span></button>
+      <nav id="navigation" aria-label="Główna nawigacja">
+        <a href="mapa.html" id="mapa-pasiek">Mapa pasiek</a>
+        <a href="index.html#katalog">Katalog produktów</a>
+        <a href="index.html#vademecum">O miodzie</a>
+        <a class="mobile-panel-link" href="logowanie.html">Dla pszczelarzy</a>
+        <a href="blog.html">Dziennik</a>
+      </nav>
+      <a class="button nav-cta" href="logowanie.html"><i class="fa-solid fa-address-card ui-icon"
+          aria-hidden="true"></i><span>Dla pszczelarzy</span>
+      </a>
+    </div>
+  </header>
+  <main id="main" class="container section prose">
+    <p class="eyebrow">JASNE ZASADY</p>
+    <h1>O tej wersji strony</h1>
+    <h2>Dane i oferty</h2>
+    <p>14 pasiek to wpisy z przekazanego prototypu. Nie potwierdzono ich tożsamości, ofert, ocen ani certyfikatów.
+      Oznaczamy je jako przykładowe. Dane kontaktowe przykładów nie są udostępnione jako rzeczywiste oferty. Własne
+      wpisy nie otrzymują automatycznych ocen.</p>
+    <h2>Wspólne dane pasiek</h2>
+    <p>Dodane pasieki, dane kontaktowe i pomniejszone zdjęcia zapisują się na wspólnym serwerze i są widoczne dla
+      wszystkich odwiedzających. Strona odświeża dane co 15 sekund oraz po powrocie do karty. Wcześniejsze wpisy lokalne
+      są przenoszone po otwarciu strony w przeglądarce, w której je zapisano. Klucz umożliwiający edycję pozostaje w tej
+      przeglądarce. Usunięcie jej danych nie usuwa pasiek z serwera, ale powoduje utratę dostępu do edycji; wtedy
+      skontaktuj się z administratorem. Eksport zapisuje kopię wpisów, bez klucza dostępu.</p>
+    <h2>Mapa i lokalizacja</h2>
+    <p>Mapa korzysta z Leaflet i kafelków OpenStreetMap. Pobranie kafelków przekazuje dostawcy zwykłe dane połączenia, w
+      tym adres IP i obszar mapy. Lokalizacja jest pobierana dopiero po naciśnięciu „Blisko mnie” i udzieleniu zgody.
+      Służy do obliczania odległości w przeglądarce i nie jest trwale zapisywana. Mapa wymaga internetu; aktualne wpisy
+      wymagają połączenia z serwerem strony.</p>
+    <h2>Ikony</h2>
+    <p>Ikony są pobierane z Font Awesome. Połączenie przekazuje dostawcy zwykłe dane techniczne, w tym adres IP. Bez
+      dostępu do ikon działania pozostają opisane tekstem lub strzałkami.</p>
+    <h2>Zakupy i kontakt</h2>
+    <p>Ta strona nie przyjmuje zamówień ani płatności. W profilach własnych wpisów linki telefonu i e-maila otwierają
+      odpowiednią aplikację. Wyznaczanie trasy otwiera Mapy Google.</p>
+    <h2>Zdjęcia i treści</h2>
+    <p>Ilustracje pochodzą z dostarczonego prototypu. Przed publicznym uruchomieniem właściciel powinien potwierdzić
+      prawa do materiałów oraz prawdziwość danych. Opisy produktów służą poznawaniu ich charakteru, a nie zaleceniom
+      leczniczym.</p>
+    <a class="button" href="logowanie.html">Przejdź do swoich pasiek</a>
+  </main>
+  <footer class="footer">
+    <div class="container footer-top">
+      <div>
+        <a class="brand" href="index.html">Miodna Mapa</a>
+        <p>Bliżej pszczół. Bliżej lokalnych smaków.</p>
+      </div>
+      <nav aria-label="Nawigacja w stopce">
+        <a href="mapa.html">Znajdź pasiekę</a>
+        <a href="galeria.html">Galeria</a>
+        <a href="logowanie.html">Moje pasieki</a>
+        <a href="informacje.html">O danych i prywatności</a>
+      </nav>
+    </div>
+    <div class="container footer-bottom">
+      <span>© 2026 Miodna Mapa Polski</span>
+      <span>Wspólna mapa pasiek · wpisy przykładowe oznaczono w katalogu.</span>
+    </div>
+  </footer>
+  <dialog id="detail" aria-labelledby="dialog-title">
+    <div class="dialog-toolbar">
+      <button class="secondary" data-close><i class="fa-solid fa-xmark ui-icon"
+          aria-hidden="true"></i><span>Zamknij</span>
+      </button>
+    </div>
+    <div id="detail-content">
+    </div>
+  </dialog>
+  <dialog id="lightbox" aria-labelledby="photo-caption">
+    <div class="dialog-toolbar">
+      <button class="secondary" data-close><i class="fa-solid fa-xmark ui-icon"
+          aria-hidden="true"></i><span>Zamknij<span class="compact-omit"> zdjęcie</span></span></button>
+    </div>
+    <img id="large-photo" src="assets/krajobraz.webp" alt="">
+    <div class="photo-controls">
+      <button class="secondary" id="photo-prev" aria-label="Poprzednie zdjęcie"><span class="photo-arrow"
+          aria-hidden="true">←</span><i class="fa-solid fa-chevron-left ui-icon" aria-hidden="true"></i></button>
+      <p id="photo-caption">
+      </p>
+      <button class="secondary" id="photo-next" aria-label="Następne zdjęcie"><span class="photo-arrow"
+          aria-hidden="true">→</span><i class="fa-solid fa-chevron-right ui-icon" aria-hidden="true"></i></button>
+    </div>
+  </dialog>
+  
+  </div>
+  <noscript>
+    <p class="notice container">Włącz JavaScript, aby korzystać z wyszukiwarki, mapy i formularzy. Poradnik na stronie
+      głównej pozostaje dostępny.</p>
+  </noscript>
+</body>
+
+</html>

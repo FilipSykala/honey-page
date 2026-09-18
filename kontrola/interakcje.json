@@ -1,0 +1,32 @@
+{
+  "passed": [
+    "Skip link and visible keyboard focus",
+    "Catalog search without diacritics, modal Escape and focus restoration",
+    "Catalog empty state and reset",
+    "All product categories",
+    "Product-to-map filter handoff",
+    "Apiary search, profile and nested lightbox",
+    "Region, shipping, BIO, rating filters and reset",
+    "List/map modes and map focus",
+    "GPS success, radius and clean disable",
+    "Blog categories, deep links, reload, empty and reset",
+    "Gallery mouse and arrow navigation",
+    "Required fields block empty save",
+    "Phone and email validation",
+    "Corrupt photo error",
+    "Photo size limit",
+    "Photo compression, real save and safe text rendering",
+    "Persistence across reload, editing and no fabricated ratings",
+    "Cancel edit and valid JSON export",
+    "Saved apiary in map, working phone/mail/route destinations",
+    "Delete confirmation, cancellation and removal",
+    "Quota error does not claim success",
+    "Mobile menu and reduced motion",
+    "GPS permission-denied state",
+    "Network failure preserves list and shows retry",
+    "Missing map library graceful fallback",
+    "Corrupt storage preserved without overwrite",
+    "No JavaScript page errors in normal interactions"
+  ],
+  "errors": []
+}

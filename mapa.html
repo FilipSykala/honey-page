@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Miodna Mapa Polski — poznaj odmiany miodu, przeglądaj pasieki i przygotuj własną wizytówkę.">
+    <title>Mapa pasiek · Miodna Mapa</title>
+    <link rel="icon" href="assets/fav2.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="vendor/leaflet.css">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="vendor/leaflet.js">
+    </script>
+    <script defer src="https://kit.fontawesome.com/5535fb1062.js" crossorigin="anonymous"></script>
+    <script defer src="script.js">
+    </script>
+  </head>
+  <body data-page="map">
+    <a class="skip" href="#main">Przejdź do treści</a>
+    <header class="header">
+      <div class="container nav-wrap">
+        <a class="brand" href="index.html">
+          <img class="brand-mark" src="assets/fav2.svg" alt="">
+          <span>Miodna Mapa<small>POLSKI</small>
+        </span>
+      </a>
+      <button class="menu-toggle secondary" aria-expanded="false" aria-controls="navigation"><i class="fa-solid fa-bars ui-icon" aria-hidden="true"></i><span>Menu</span></button>
+      <nav id="navigation" aria-label="Główna nawigacja">
+        <a href="mapa.html" aria-current="page" id="mapa-pasiek">Mapa pasiek</a>
+        <a href="index.html#katalog">Katalog produktów</a>
+        <a href="index.html#vademecum">O miodzie</a>
+        <a class="mobile-panel-link" href="logowanie.html">Dla pszczelarzy</a>
+        <a href="blog.html" >Dziennik</a>
+      </nav>
+      <a class="button nav-cta" href="logowanie.html"><i class="fa-solid fa-address-card ui-icon" aria-hidden="true"></i><span>Dla pszczelarzy</span>
+    </a>
+  </div>
+</header>
+<main id="main" class="container map-main">
+  <div class="page-heading">
+    <div>
+      <p class="eyebrow">ZNAJDŹ SWOJE MIEJSCE NA MIÓD</p>
+      <h1>Mapa pasiek</h1>
+    </div>
+    <a href="logowanie.html#dodaj" class="button"><i class="fa-solid fa-plus ui-icon" aria-hidden="true"></i><span>Dodaj <span class="compact-omit">swoją </span>pasiekę</span></a>
+  </div>
+  <p class="notice">Odkrywasz wersję demonstracyjną. 14 wpisów z prototypu to dane przykładowe, a nie zweryfikowane oferty sprzedaży.</p>
+  <form id="filters" class="filters" aria-labelledby="filters-title" aria-describedby="filters-help">
+    <div class="filters-heading">
+      <div>
+        <h2 id="filters-title">Znajdź miód dla siebie</h2>
+        <p id="filters-help">Wybierz miejsce lub produkt. Mapa i lista aktualizują się automatycznie.</p>
+      </div>
+      <button type="button" class="text-button" id="reset-filters">Wyczyść filtry</button>
+    </div>
+    <div class="filter-main">
+      <div class="field">
+        <label for="map-search">Miejscowość, pasieka lub produkt</label>
+        <input type="search" id="map-search" placeholder="np. Kazimierz Dolny lub lipowy">
+      </div>
+      <div class="field">
+        <label for="region">Województwo</label>
+        <select id="region">
+          <option value="">Cała Polska</option>
+        </select>
+      </div>
+      <button class="secondary" id="locate" type="button"><i class="fa-solid fa-location-crosshairs ui-icon" aria-hidden="true"></i><span>Blisko mnie</span></button>
+    </div>
+    <details class="product-filter-details" open>
+      <summary>Rodzaj miodu lub produktu <span id="product-filter-count" class="filter-count" hidden></span></summary>
+      <p class="filter-hint" id="products-help">Możesz wybrać kilka — pokażemy pasieki z co najmniej jednym z tych produktów.</p>
+      <div class="chips" id="honey-filters" role="group" aria-label="Rodzaj produktu" aria-describedby="products-help">
+      </div>
+    </details>
+    <details class="more-filters">
+      <summary>Więcej filtrów <span class="filter-summary-hint">Dostawa, odbiór i oferta</span></summary>
+      <div class="filter-extra">
+        <label>
+          <input type="checkbox" id="shipping"> Wysyłka</label>
+          <label>
+            <input type="checkbox" id="pickup"> Odbiór osobisty</label>
+            <label>
+              <input type="checkbox" id="bio"> Deklaracja BIO</label>
+              <label>
+                <input type="checkbox" id="workshops"> Warsztaty</label>
+                <label for="rating">Ocena przykładowa <select id="rating">
+                <option value="0">Wszystkie</option>
+                <option value="4.8">4,8 i więcej</option>
+                <option value="5">5,0</option>
+              </select>
+            </label>
+          </div>
+        </details>
+        <div id="radius-wrap" class="radius-wrap" hidden>
+          <label for="radius">Odległość w linii prostej: <output id="radius-value">50 km</output>
+        </label>
+        <input id="radius" type="range" min="0" max="300" step="10" value="50">
+        <small>0 oznacza brak limitu odległości.</small>
+      </div>
+      <div class="filter-bottom">
+        <p id="geo-status" role="status" aria-live="polite"></p>
+      </div>
+    </form>
+    <div class="results-toolbar">
+      <p id="result-count" role="status">
+      </p>
+      <div class="view-buttons" aria-label="Widok wyników">
+        <button type="button" class="secondary" data-view="split" aria-pressed="true"><i class="fa-solid fa-map-location-dot ui-icon" aria-hidden="true"></i><span>Mapa i lista</span></button>
+        <button type="button" class="secondary" data-view="list" aria-pressed="false"><i class="fa-solid fa-list-ul ui-icon" aria-hidden="true"></i><span>Lista</span></button>
+      </div>
+      <label for="sort">Sortuj <select id="sort">
+      <option value="name">Alfabetycznie</option>
+      <option value="rating">Ocena przykładowa</option>
+      <option value="distance" disabled>Odległość</option>
+    </select>
+  </label>
+</div>
+<div class="map-layout" id="map-layout">
+  <section class="map-pane" aria-label="Mapa lokalizacji pasiek">
+    <div id="map" tabindex="0" aria-label="Interaktywna mapa. Te same pasieki znajdziesz na liście obok.">
+    </div>
+    <p id="map-status" class="map-status" role="status">Ładowanie mapy…</p>
+    <button class="secondary map-retry" id="map-retry" type="button" hidden>Spróbuj ponownie</button>
+  </section>
+  <aside id="apiary-results" class="apiary-results" aria-label="Lista pasiek">
+  </aside>
+</div>
+</main>
+<footer class="footer">
+  <div class="container footer-top">
+    <div>
+      <a class="brand" href="index.html">Miodna Mapa</a>
+      <p>Bliżej pszczół. Bliżej lokalnych smaków.</p>
+    </div>
+    <nav aria-label="Nawigacja w stopce">
+      <a href="mapa.html">Znajdź pasiekę</a>
+      <a href="galeria.html">Galeria</a>
+      <a href="logowanie.html">Moje pasieki</a>
+      <a href="informacje.html">O danych i prywatności</a>
+    </nav>
+  </div>
+  <div class="container footer-bottom">
+    <span>© 2026 Miodna Mapa Polski</span>
+    <span>Wspólna mapa pasiek · wpisy przykładowe oznaczono w katalogu.</span>
+  </div>
+</footer>
+<dialog id="detail" aria-labelledby="dialog-title">
+  <div class="dialog-toolbar">
+    <button class="secondary" data-close><i class="fa-solid fa-xmark ui-icon" aria-hidden="true"></i><span>Zamknij</span>
+  </button>
+</div>
+<div id="detail-content">
+</div>
+</dialog>
+<dialog id="lightbox" aria-labelledby="photo-caption">
+  <div class="dialog-toolbar">
+    <button class="secondary" data-close><i class="fa-solid fa-xmark ui-icon" aria-hidden="true"></i><span>Zamknij<span class="compact-omit"> zdjęcie</span></span></button>
+  </div>
+  <img id="large-photo" src="assets/krajobraz.webp" alt="">
+  <div class="photo-controls">
+    <button class="secondary" id="photo-prev" aria-label="Poprzednie zdjęcie"><span class="photo-arrow" aria-hidden="true">←</span><i class="fa-solid fa-chevron-left ui-icon" aria-hidden="true"></i></button>
+    <p id="photo-caption">
+    </p>
+    <button class="secondary" id="photo-next" aria-label="Następne zdjęcie"><span class="photo-arrow" aria-hidden="true">→</span><i class="fa-solid fa-chevron-right ui-icon" aria-hidden="true"></i></button>
+  </div>
+</dialog>
+
+<noscript>
+  <p class="notice container">Włącz JavaScript, aby korzystać z wyszukiwarki, mapy i formularzy. Poradnik na stronie głównej pozostaje dostępny.</p>
+</noscript>
+</body>
+</html>

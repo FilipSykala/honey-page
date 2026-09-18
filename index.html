@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Miodna Mapa Polski — poznaj odmiany miodu, przeglądaj pasieki i przygotuj własną wizytówkę.">
+    <title>Miód ma swoje miejsce · Miodna Mapa</title>
+    <link rel="icon" href="assets/fav2.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="https://kit.fontawesome.com/5535fb1062.js" crossorigin="anonymous"></script>
+    <script defer src="script.js">
+    </script>
+  </head>
+  <body data-page="home">
+    <a class="skip" href="#main">Przejdź do treści</a>
+    <header class="header">
+      <div class="container nav-wrap">
+        <a class="brand" href="index.html">
+          <img class="brand-mark" src="assets/fav2.svg" alt="">
+          <span>Miodna Mapa<small>POLSKI</small>
+        </span>
+      </a>
+      <button class="menu-toggle secondary" aria-expanded="false" aria-controls="navigation"><i class="fa-solid fa-bars ui-icon" aria-hidden="true"></i><span>Menu</span></button>
+      <nav id="navigation" aria-label="Główna nawigacja">
+        <a href="mapa.html" id="mapa-pasiek" >Mapa pasiek</a>
+        <a href="index.html#katalog">Katalog produktów</a>
+        <a href="index.html#vademecum">O miodzie</a>
+        <a class="mobile-panel-link" href="logowanie.html">Dla pszczelarzy</a>
+        <a href="blog.html" >Dziennik</a>
+      </nav>
+      <a class="button nav-cta" href="logowanie.html"><i class="fa-solid fa-address-card ui-icon" aria-hidden="true"></i><span>Dla pszczelarzy</span>
+    </a>
+  </div>
+</header>
+<main id="main">
+  <section class="hero container" id="hero-image1">
+    <div class="hero-copy">
+      <p class="eyebrow">MAPA POLSKICH PASIEK</p>
+      <h1>Dobry miód.<br>
+      <em>Blisko Ciebie.</em>
+    </h1>
+    <p class="lead">Odkryj pasieki w okolicy i znajdź swój ulubiony miód.</p>
+    <a class="button hero-map-cta" href="mapa.html">
+      <i class="fa-solid fa-map-location-dot ui-icon" aria-hidden="true"></i>
+      <span>Znajdź pasiekę na mapie</span>
+    </a>
+</div>
+<figure class="hero-art">
+  <img src="assets/zdj-hero.jpg" alt="Ilustracja złotych wzgórz, łąk i pszczół" width="1600" height="893" fetchpriority="high">
+
+</figure>
+</section>
+<div class="promise-strip">
+  <div class="container">
+    <span>
+      <b>01</b> Wybierz swój miód</span>
+      <span>
+        <b>02</b> Poznaj pasiekę</span>
+        <span>
+          <b>03</b> Ustal zakup z pszczelarzem</span>
+        </div>
+      </div>
+      <section class="section container" id="katalog">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">PROSTO Z ULA</p>
+            <h2>Każdy słoik to inna historia.</h2>
+          </div>
+          <p>Wybierz kategorię. Poznaj smak, charakter i zastosowania produktów pszczelich.</p>
+        </div>
+        <div class="catalog-picker">
+          <div class="catalog-picker-heading"><h3>Znajdź coś dla siebie</h3><button id="catalog-reset" class="text-button" type="button">Wyczyść filtry</button></div>
+          <div id="catalog-categories" class="catalog-category-grid" role="group" aria-label="Kategorie produktów"></div>
+          <div class="catalog-filter-grid">
+            <div class="field"><label for="catalog-search">Czego szukasz?</label><input id="catalog-search" type="search" placeholder="Np. miód lipowy, świece…"></div>
+            <div class="field"><label for="catalog-apiary">Oferta pszczelarza</label><select id="catalog-apiary"><option value="">Wszystkie pasieki</option></select></div>
+            <div class="field"><label for="catalog-sort">Kolejność produktów</label><select id="catalog-sort"><option value="default">Domyślna</option><option value="az">Nazwa: A–Z</option><option value="za">Nazwa: Z–A</option></select></div>
+          </div>
+        </div>
+        <div id="catalog-apiary-info" class="notice" hidden></div>
+        <div class="catalog-results-heading"><p id="catalog-count" class="meta" role="status"></p><span id="catalog-selection" class="meta"></span></div>
+        <div id="catalog-grid" class="product-grid">
+        </div>
+      </section>
+      <section class="knowledge" id="vademecum">
+        <div class="container knowledge-layout">
+          <div>
+            <p class="eyebrow">MAŁE VADEMECUM</p>
+            <h2>Poznaj miód<br>od dobrej strony.</h2>
+            <p>Kolor, aromat i konsystencja tworzą charakter miodu. Zacznij od tego, co lubisz.</p>
+            <a class="text-link" href="blog.html">Zajrzyj do dziennika ↗</a>
+          </div>
+          <div class="accordion">
+            <details open>
+              <summary>Jaki smak wybrać na początek?</summary>
+              <p>Wolisz delikatną słodycz? Poznaj akacjowy i rzepakowy. Jeśli szukasz wyrazistego aromatu, porównaj lipowy, gryczany i spadziowy. Opisy w katalogu ułatwią wybór; smak zmienia się także między zbiorami.</p>
+            </details>
+            <details>
+              <summary>Płynny czy skrystalizowany?</summary>
+              <p>Krystalizacja jest naturalną zmianą konsystencji miodu. Jej tempo zależy między innymi od składu i przechowywania. Sama konsystencja nie rozstrzyga o autentyczności produktu.</p>
+            </details>
+            <details>
+              <summary>Jak przechowywać miód?</summary>
+              <p>Zakręcaj słoik i przechowuj go w suchym miejscu, z dala od słońca oraz źródeł ciepła. Korzystaj z czystej, suchej łyżki i sprawdzaj wskazówki producenta.</p>
+            </details>
+            <details>
+              <summary>Czy miód jest dla każdego?</summary>
+              <p>Nie podawaj miodu dzieciom poniżej 12. miesiąca życia. Miód jest żywnością, a nie zamiennikiem leczenia.</p>
+              <a href="https://www.cdc.gov/infant-toddler-nutrition/foods-and-drinks/foods-and-drinks-to-avoid-or-limit.html" target="_blank" rel="noopener noreferrer">Zalecenia CDC dotyczące żywienia niemowląt ↗</a>
+            </details>
+          </div>
+        </div>
+      </section>
+      <section class="section container" id="qualityGuide">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">ŚWIADOMY WYBÓR</p>
+            <h2>Zapytaj, zanim kupisz.</h2>
+          </div>
+          <p>Bezpośrednia rozmowa pomaga poznać produkt. Domowe testy nie zastępują badania autentyczności.</p>
+        </div>
+        <div class="guide-grid">
+          <article>
+            <span class="step">01 / POCHODZENIE</span>
+            <h3>Skąd jest ten miód?</h3>
+            <p>Zapytaj o miejsce pozyskania i ostatni zbiór. Przeczytaj informacje na etykiecie.</p>
+          </article>
+          <article>
+            <span class="step">02 / PRODUKT</span>
+            <h3>Co jest w słoiku?</h3>
+            <p>Sprawdź odmianę, masę i skład. Miód z dodatkami to inny produkt niż sam miód.</p>
+          </article>
+          <article>
+            <span class="step">03 / DOSTĘPNOŚĆ</span>
+            <h3>Jak go odebrać?</h3>
+            <p>Potwierdź cenę, dostępność i odbiór lub wysyłkę bezpośrednio u pszczelarza.</p>
+          </article>
+        </div>
+        <p class="meta">O metodach potwierdzania autentyczności: <a href="https://www.food.gov.uk/research/honey-authenticity-introduction-exploring-the-authenticity-challenge?navref=quicklink" target="_blank" rel="noopener noreferrer">Food Standards Agency ↗</a>
+      </p>
+    </section>
+    <section class="section journal-section">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">DZIENNIK MIODNEJ MAPY</p>
+            <h2>Więcej niż miód w słoiku.</h2>
+          </div>
+          <a class="text-link" href="blog.html">Wszystkie teksty ↗</a>
+        </div>
+        <div id="journal-preview" class="article-grid">
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container footer-top">
+      <div>
+        <a class="brand" href="index.html">Miodna Mapa</a>
+        <p>Bliżej pszczół. Bliżej lokalnych smaków.</p>
+      </div>
+      <nav aria-label="Nawigacja w stopce">
+        <a href="mapa.html">Znajdź pasiekę</a>
+        <a href="galeria.html">Galeria</a>
+        <a href="logowanie.html">Moje pasieki</a>
+        <a href="informacje.html">O danych i prywatności</a>
+      </nav>
+    </div>
+    <div class="container footer-bottom">
+      <span>© 2026 Miodna Mapa Polski</span>
+      <span>Wspólna mapa pasiek · wpisy przykładowe oznaczono w katalogu.</span>
+    </div>
+  </footer>
+  <dialog id="detail" aria-labelledby="dialog-title">
+    <div class="dialog-toolbar">
+      <button class="secondary" data-close><i class="fa-solid fa-xmark ui-icon" aria-hidden="true"></i><span>Zamknij</span>
+    </button>
+  </div>
+  <div id="detail-content">
+  </div>
+</dialog>
+<dialog id="lightbox" aria-labelledby="photo-caption">
+  <div class="dialog-toolbar">
+    <button class="secondary" data-close><i class="fa-solid fa-xmark ui-icon" aria-hidden="true"></i><span>Zamknij<span class="compact-omit"> zdjęcie</span></span></button>
+  </div>
+  <img id="large-photo" src="assets/krajobraz.webp" alt="">
+  <div class="photo-controls">
+    <button class="secondary" id="photo-prev" aria-label="Poprzednie zdjęcie"><span class="photo-arrow" aria-hidden="true">←</span><i class="fa-solid fa-chevron-left ui-icon" aria-hidden="true"></i></button>
+    <p id="photo-caption">
+    </p>
+    <button class="secondary" id="photo-next" aria-label="Następne zdjęcie"><span class="photo-arrow" aria-hidden="true">→</span><i class="fa-solid fa-chevron-right ui-icon" aria-hidden="true"></i></button>
+  </div>
+</dialog>
+
+</div>
+<noscript>
+  <p class="notice container">Włącz JavaScript, aby korzystać z wyszukiwarki, mapy i formularzy. Poradnik na stronie głównej pozostaje dostępny.</p>
+</noscript>
+</body>
+</html>
