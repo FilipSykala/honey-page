@@ -96,7 +96,7 @@ const ARTICLES = [{
   "category": "pszczelarstwo",
   "title": "Rok w pasiece ma swój rytm",
   "excerpt": "Od zimowego przygotowania sprzętu po letnie miodobranie. Zajrzyj za kulisy pracy przy ulach.",
-  "image": "assets/pasieka.webp",
+  "image": "assets/miody/miod-firefyl1.jpg",
   "content": ["Słoik miodu jest końcem długiej historii. Praca w pasiece trwa przez cały rok, a kalendarz wyznaczają pogoda, kwitnienie roślin i kondycja rodzin pszczelich. Terminy nie są takie same w każdym regionie Polski.", "Zimą jest czas na przygotowanie sprzętu i planowanie kolejnego sezonu. Wiosną przychodzi pora obserwowania rozwoju rodzin i pierwszych pożytków. Latem pszczelarz zajmuje się między innymi pozyskiwaniem miodu i opieką nad rodzinami. Jesień to przygotowanie do zimowli.", "Planując wizytę, skontaktuj się wcześniej z gospodarzem. Miodobranie nie odbywa się według sztywnego terminarza, a nie każda pasieka prowadzi warsztaty. Zapytaj, jakie produkty są aktualnie dostępne i czy można je odebrać osobiście."]
 }, {
   "id": "wybierz-swoj-smak",
@@ -248,8 +248,9 @@ function imageNode(src, alt, cls = '') {
   });
   node.addEventListener('error', () => {
     if (!node.src.endsWith('/assets/pasieka.webp')) {
-      node.src = 'assets/pasieka.webp';
+      node.src = 'assets/miody/miod-firefly1.jpg';
       node.alt = 'Ilustracja zastępcza pasieki';
+      node.cls = oki1;
     }
   });
   return node;

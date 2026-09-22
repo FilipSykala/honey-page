@@ -255,29 +255,65 @@ small,.meta  {
   display:none
 }
 .hero  {
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
   display:grid;
-  grid-template-columns:1.08fr 1fr;
-  gap:4rem;
-  padding-block:3.6rem 4rem;
-  align-items:center
+  min-height:580px;
+  margin-block:1.5rem 2rem;
+  padding:clamp(2rem,5vw,4.5rem);
+  align-items:center;
+  border-radius:24px;
+  background:#263025;
+  color:#fffdf5;
+  box-shadow:0 16px 40px #292b2314
+}
+.hero::before {
+  content:'';
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  background:linear-gradient(90deg,rgba(20,30,21,.9) 0%,rgba(20,30,21,.78) 40%,rgba(20,30,21,.28) 72%,rgba(20,30,21,.08) 100%);
+  pointer-events:none
+}
+.hero-copy {
+  max-width:620px;
+  min-width:0
+}
+.hero .eyebrow {
+  color:#f7d58a;
+  font-size:.75rem;
+  letter-spacing:.18em
 }
 .hero h1  {
-  font-size:clamp(3.4rem,5.2vw,5rem);
-  margin-bottom:1.5rem
+  font-size:clamp(2.65rem,5.2vw,5rem);
+  line-height:1.08;
+  margin-bottom:1.5rem;
+  text-shadow:0 2px 16px #10191040
+}
+.hero h1 em {
+  color:#f7d58a
 }
 .hero .lead  {
-  max-width:39ch
+  max-width:34ch;
+  color:#f4f2e9;
+  font-size:clamp(1rem,1.5vw,1.2rem)
 }
 .hero-map-cta {
   margin-top:1.75rem;
+  
   min-height:58px;
   padding:1rem 1.5rem;
   font-size:1.0625rem;
-  border:2px solid var(--honey-dark);
-  box-shadow:0 5px 0 var(--honey-dark), 0 10px 24px #D977061A;
+  border:1px solid var(--honey);
+  box-shadow:0 6px 20px #10191026;
 }
 .hero-map-cta:hover {
-  box-shadow:0 3px 0 var(--honey-dark), 0 8px 20px #D9770626;
+  background:#f5c75f;
+  border-color:#f5c75f;
+}
+.hero-map-cta:focus-visible {
+  outline-color:#fffdf5;
 }
 @media(max-width:600px) {
   .hero-map-cta { width:100%; padding-inline:1rem; }
@@ -292,13 +328,19 @@ small,.meta  {
   margin-bottom:.6rem
 }
 
-/*na hero image */
-
-#hero-image1{
-  background-image: url();
-  background-repeat: no-repeat;
-
-  
+.hero-background {
+  position:absolute;
+  top:65%;
+  right:0;
+  /* Keep the photo at the widest hero size; narrower boxes crop it. */
+  width:1280px;
+  max-width:none;
+  height:auto;
+  min-height:100%;
+  transform:translateY(-65%);
+  object-fit:cover;
+  object-position:right center;
+  z-index:-2;
 }
 
 .search-line  {
@@ -332,47 +374,7 @@ small,.meta  {
 .quick-links span  {
   color:var(--muted)
 }
-.hero-art  {
-  position:relative;
-  min-height:470px;
-  height:100%;
-  border-radius:160px 160px 160px 160px;
-  overflow:hidden;
-  background:var(--honey-light)
-}
-.hero-art>img  {
-  width:100%;
-  height:100%;
-  position:absolute;
-  object-fit:cover;
-  object-position:54% center
-}
-.hero-art figcaption  {
-  position:absolute;
-  bottom:24px;
-  left:24px;
-  right:24px;
-  background:#fffdf5f0;
-  backdrop-filter:blur(8px);
-  padding:1.3rem 1.5rem;
-  border-radius:10px
-}
-.hero-art figcaption span  {
-  font-size:.65rem;
-  font-weight:700;
-  letter-spacing:.13em
-}
-.hero-art figcaption strong  {
-  font-family:var(--serif);
-  display:block;
-  font-size:1.7rem;
-  font-weight:400;
-  margin:.2rem 0 .5rem
-}
-.hero-art figcaption a  {
-  font-size:.875rem;
-  text-decoration:none
-}
+
 .promise-strip  {
   border-block:1px solid var(--line)
 }
@@ -482,7 +484,7 @@ input[type=range]  {
   width:100%;
   height:100%;
   object-fit:cover;
-  object-position:50% 50%
+  object-position:center top
 }
 .product-visual .tag  {
   position:absolute;
@@ -492,7 +494,9 @@ input[type=range]  {
 }
 .product-body  {
   padding:1.3rem;
-  transition:background .15s
+  transition:background .15s;
+  opacity:.5;
+  
 }
 .product-body h3  {
   margin-bottom:.65rem
@@ -612,6 +616,7 @@ input[type=range]  {
 .article-card img  {
   aspect-ratio:1.75;
   object-fit:cover;
+  object-position:center top;
   width:100%;
   border-radius:var(--radius);
   margin-bottom:1rem
@@ -1004,6 +1009,7 @@ input[type=range]  {
   width:100px;
   height:110px;
   object-fit:cover;
+  object-position:center top;
   border-radius:var(--small)
 }
 .apiary-card h2,.apiary-card h3  {
@@ -1390,7 +1396,8 @@ legend  {
 .gallery-grid img  {
   width:100%;
   height:300px;
-  object-fit:cover
+  object-fit:cover;
+  object-position:center top
 }
 .gallery-grid span  {
   display:block;
@@ -1409,11 +1416,7 @@ legend  {
 .dialog-body,.apiary-card,.article-card  {
   overflow-wrap:anywhere
 }
-@media(min-width:1600px)  {
-  .hero-art  {
-    min-height:490px
-  }
-}
+
 @media(max-width:1100px)  {
   .container  {
     width:calc(100% - 48px)
@@ -1427,15 +1430,7 @@ legend  {
   .brand  {
     font-size:1.3rem
   }
-  .hero  {
-    gap:2rem
-  }
-  .hero h1  {
-    font-size:4rem
-  }
-  .hero-art  {
-    min-height:430px
-  }
+
   .search-line  {
     flex-direction:column
   }
@@ -1493,30 +1488,7 @@ legend  {
   .nav-cta  {
     font-size:.875rem
   }
-  .hero h1  {
-    font-size:3.4rem
-  }
-  .hero  {
-    gap:1.5rem
-  }
-  .hero-art  {
-    min-height:410px
-  }
-  .hero-art figcaption  {
-    left:16px;
-    right:16px;
-    bottom:16px;
-    padding:1rem
-  }
-  .hero-art figcaption strong  {
-    font-size:1.4rem
-  }
-  .hero-art figcaption span  {
-    font-size:.65rem
-  }
-  .hero .eyebrow  {
-    font-size:.65rem
-  }
+
   .section  {
     padding-block:3.5rem
   }
@@ -1617,31 +1589,16 @@ legend  {
     display:none
   }
   .hero  {
-    grid-template-columns:1fr;
-    padding-block:2.5rem;
-    gap:2rem
+    min-height:540px;
+    margin-block:1rem 1.5rem;
+    padding:2.5rem 1.5rem;
+    border-radius:18px;
+    align-items:start
   }
-  .hero h1  {
-    font-size:3.65rem
+  .hero::before {
+    background:linear-gradient(180deg,rgba(20,30,21,.9) 0%,rgba(20,30,21,.8) 55%,rgba(20,30,21,.3) 100%)
   }
-  .hero .eyebrow  {
-    font-size:.7rem
-  }
-  .hero-art  {
-    min-height:310px;
-    border-radius:100px 100px 12px 12px
-  }
-  .hero-art>img  {
-    object-position:center 60%
-  }
-  .hero-art figcaption  {
-    left:18px;
-    right:18px;
-    bottom:18px
-  }
-  .hero-art figcaption strong  {
-    font-size:1.65rem
-  }
+
   .search-line  {
     flex-direction:column
   }
@@ -1903,3 +1860,7 @@ legend  {
 #catalog-apiary-info { margin-top: 1rem; margin-bottom: 0; }
 #catalog-apiary-info button { margin-top: .75rem; }
 @media(max-width:850px) { #katalog .catalog-filter-grid { grid-template-columns: 1fr; } }
+
+.oki1{
+  position: absolute;
+}
