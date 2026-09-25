@@ -35,20 +35,21 @@
     </a>
   </div>
 </header>
-<main id="main" class="container map-main">
-  <div class="page-heading">
-    <div>
-      <p class="eyebrow">ZNAJDŹ SWOJE MIEJSCE NA MIÓD</p>
-      <h1>Mapa pasiek</h1>
-    </div>
-    <a href="logowanie.html#dodaj" class="button"><i class="fa-solid fa-plus ui-icon" aria-hidden="true"></i><span>Dodaj <span class="compact-omit">swoją </span>pasiekę</span></a>
+
+<main id="main" class="map-workspace" tabindex="-1">
+  <div class="page-heading map-heading">
+    <div><p class="eyebrow">PROSTO OD PSZCZELARZA</p><h1>Znajdź swoją pasiekę</h1></div>
+    <a href="logowanie.html#dodaj" class="secondary">Dodaj pasiekę</a>
   </div>
-  <p class="notice">Odkrywasz wersję demonstracyjną. 14 wpisów z prototypu to dane przykładowe, a nie zweryfikowane oferty sprzedaży.</p>
+  <div class="map-explorer">
+    <aside class="filter-sidebar" aria-label="Wyszukiwanie i filtry">
+      <button type="button" id="filter-toggle" class="secondary" aria-expanded="false" aria-controls="filter-panel">Szukaj i filtruj <span id="active-filter-count"></span></button>
+      <div id="filter-panel">
   <form id="filters" class="filters" aria-labelledby="filters-title" aria-describedby="filters-help">
     <div class="filters-heading">
       <div>
         <h2 id="filters-title">Znajdź miód dla siebie</h2>
-        <p id="filters-help">Wybierz miejsce lub produkt. Mapa i lista aktualizują się automatycznie.</p>
+        <p id="filters-help">Wybierz miejsce lub produkt. Wyniki aktualizują się automatycznie. Wybierz znacznik, aby poznać pasiekę.</p>
       </div>
       <button type="button" class="text-button" id="reset-filters">Wyczyść filtry</button>
     </div>
@@ -65,30 +66,29 @@
       </div>
       <button class="secondary" id="locate" type="button"><i class="fa-solid fa-location-crosshairs ui-icon" aria-hidden="true"></i><span>Blisko mnie</span></button>
     </div>
-    <details class="product-filter-details" open>
+    <details class="product-filter-details">
       <summary>Rodzaj miodu lub produktu <span id="product-filter-count" class="filter-count" hidden></span></summary>
-      <p class="filter-hint" id="products-help">Możesz wybrać kilka — pokażemy pasieki z co najmniej jednym z tych produktów.</p>
-      <div class="chips" id="honey-filters" role="group" aria-label="Rodzaj produktu" aria-describedby="products-help">
+      <div class="details-content">
+        <p class="filter-hint" id="products-help">Możesz wybrać kilka — pokażemy pasieki z co najmniej jednym z tych produktów.</p>
+        <div class="chips" id="honey-filters" role="group" aria-label="Rodzaj produktu" aria-describedby="products-help">
+        </div>
       </div>
     </details>
     <details class="more-filters">
-      <summary>Więcej filtrów <span class="filter-summary-hint">Dostawa, odbiór i oferta</span></summary>
-      <div class="filter-extra">
-        <label>
-          <input type="checkbox" id="shipping"> Wysyłka</label>
-          <label>
-            <input type="checkbox" id="pickup"> Odbiór osobisty</label>
-            <label>
-              <input type="checkbox" id="bio"> Deklaracja BIO</label>
-              <label>
-                <input type="checkbox" id="workshops"> Warsztaty</label>
-                <label for="rating">Ocena przykładowa <select id="rating">
-                <option value="0">Wszystkie</option>
-                <option value="4.8">4,8 i więcej</option>
-                <option value="5">5,0</option>
-              </select>
-            </label>
+      <summary>Więcej filtrów <span class="filter-summary-hint">Dostawa, odbiór i oferta</span><span id="more-filter-count" class="filter-count" hidden></span></summary>
+      <div class="details-content">
+        <div class="filter-extra">
+          <label><input type="checkbox" id="shipping"> Wysyłka</label>
+          <label><input type="checkbox" id="pickup"> Odbiór osobisty</label>
+          <label><input type="checkbox" id="bio"> Deklaracja BIO</label>
+          <label><input type="checkbox" id="workshops"> Warsztaty</label>
+          <label for="rating">Ocena przykładowa <select id="rating">
+            <option value="0">Wszystkie</option>
+            <option value="4.8">4,8 i więcej</option>
+            <option value="5">5,0</option>
+          </select></label>
           </div>
+        </div>
         </details>
         <div id="radius-wrap" class="radius-wrap" hidden>
           <label for="radius">Odległość w linii prostej: <output id="radius-value">50 km</output>
@@ -100,30 +100,37 @@
         <p id="geo-status" role="status" aria-live="polite"></p>
       </div>
     </form>
+        <button type="button" id="show-map" class="button">Pokaż wyniki na mapie</button>
+        <p class="map-demo-note">Wersja demonstracyjna. Wpisy przykładowe są oznaczone i nie stanowią zweryfikowanych ofert.</p>
+      </div>
+    </aside>
+    <section class="map-stage" aria-label="Odkrywaj pasieki">
     <div class="results-toolbar">
       <p id="result-count" role="status">
       </p>
       <div class="view-buttons" aria-label="Widok wyników">
-        <button type="button" class="secondary" data-view="split" aria-pressed="true"><i class="fa-solid fa-map-location-dot ui-icon" aria-hidden="true"></i><span>Mapa i lista</span></button>
+        <button type="button" class="secondary" data-view="split" aria-pressed="true"><i class="fa-solid fa-map-location-dot ui-icon" aria-hidden="true"></i><span>Mapa</span></button>
         <button type="button" class="secondary" data-view="list" aria-pressed="false"><i class="fa-solid fa-list-ul ui-icon" aria-hidden="true"></i><span>Lista</span></button>
       </div>
-      <label for="sort">Sortuj <select id="sort">
+      <label id="sort-control" for="sort" hidden>Sortuj <select id="sort">
       <option value="name">Alfabetycznie</option>
       <option value="rating">Ocena przykładowa</option>
       <option value="distance" disabled>Odległość</option>
     </select>
   </label>
 </div>
-<div class="map-layout" id="map-layout">
-  <section class="map-pane" aria-label="Mapa lokalizacji pasiek">
-    <div id="map" tabindex="0" aria-label="Interaktywna mapa. Te same pasieki znajdziesz na liście obok.">
-    </div>
-    <p id="map-status" class="map-status" role="status">Ładowanie mapy…</p>
-    <button class="secondary map-retry" id="map-retry" type="button" hidden>Spróbuj ponownie</button>
-  </section>
-  <aside id="apiary-results" class="apiary-results" aria-label="Lista pasiek">
-  </aside>
-</div>
+
+      <div class="map-layout" id="map-layout">
+        <section class="map-pane" aria-label="Mapa lokalizacji pasiek">
+          <div id="map" tabindex="0" aria-label="Mapa pasiek. Strzałki przesuwają mapę, plus i minus zmieniają przybliżenie. Tab wybiera znaczniki, Enter otwiera profil. Dostępny jest też widok Lista."></div>
+          <p id="map-status" class="map-status" role="status">Ładowanie mapy…</p>
+          <button class="secondary map-retry" id="map-retry" type="button" hidden>Spróbuj ponownie</button>
+          <div id="map-empty" class="map-empty" hidden><strong>Nie znaleziono pasiek</strong><p>Zmień miejsce lub wyczyść filtry.</p><button type="button" class="secondary" id="map-reset">Wyczyść filtry</button></div>
+        </section>
+        <aside id="apiary-results" class="apiary-results" aria-label="Lista pasiek" hidden></aside>
+      </div>
+    </section>
+  </div>
 </main>
 <footer class="footer">
   <div class="container footer-top">

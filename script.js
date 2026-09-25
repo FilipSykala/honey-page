@@ -686,6 +686,27 @@ function initMap() {
     tiles = null,
     filtered = [];
   const params = new URLSearchParams(location.search);
+  let currentView = 'split', searchTimer;
+  const mobileFilters = matchMedia('(max-width: 800px)');
+  function setFiltersOpen(open) {
+    $('#filter-toggle').setAttribute('aria-expanded', String(open));
+    $('#filter-panel').hidden = mobileFilters.matches && !open;
+    $('.map-stage').inert = mobileFilters.matches && open;
+  }
+  setFiltersOpen(false);
+  mobileFilters.addEventListener('change', () => setFiltersOpen(false));
+  $('#filter-toggle').addEventListener('click', () => setFiltersOpen($('#filter-toggle').getAttribute('aria-expanded') !== 'true'));
+  $('#show-map').addEventListener('click', () => {
+    updateView('split');
+    setFiltersOpen(false);
+    $('#filter-toggle').focus();
+  });
+  $('#filter-panel').addEventListener('keydown', event => {
+    if (event.key === 'Escape' && mobileFilters.matches) {
+      setFiltersOpen(false);
+      $('#filter-toggle').focus();
+    }
+  });
   $('#map-search').value = params.get('q') || '';
   if (PRODUCTS.some(p => p.id === params.get('produkt'))) selected.add(params.get('produkt'));
   if (matchMedia('(max-width: 600px)').matches && !selected.size) $('.product-filter-details').open = false;
@@ -730,6 +751,11 @@ function initMap() {
     });
     tiles.addTo(map);
     layer = L.layerGroup().addTo(map);
+    // The map also resizes when the surrounding panels change, not only the window.
+    new ResizeObserver(() => {
+      if (!$('#map').offsetHeight) return;
+      map.invalidateSize({ pan: false });
+    }).observe($('#map'));
     map.on('zoomend', drawMarkers);
     $('#map-retry').addEventListener('click', () => {
       failed = false;
@@ -749,6 +775,11 @@ function initMap() {
     const q = normalize($('#map-search').value).trim();
     $('#product-filter-count').hidden = selected.size === 0;
     $('#product-filter-count').textContent = `Wybrano: ${selected.size}`;
+    const extraCount = ['shipping', 'pickup', 'bio', 'workshops'].filter(id => $('#' + id).checked).length + (Number($('#rating').value) ? 1 : 0);
+    $('#more-filter-count').hidden = extraCount === 0;
+    $('#more-filter-count').textContent = `Aktywne: ${extraCount}`;
+    const activeCount = selected.size + extraCount + Number(!!q) + Number(!!$('#region').value) + Number(!!position);
+    $('#active-filter-count').textContent = activeCount ? `(${activeCount})` : '';
     filtered = [...customApiaries, ...BASE_APIARIES].map(a => ({
       ...a,
       distance: position ? distance(position, a) : null
@@ -758,11 +789,15 @@ function initMap() {
     });
     filtered.sort((a, b) => $('#sort').value === 'distance' ? (a.distance ?? Infinity) - (b.distance ?? Infinity) : $('#sort').value === 'rating' ? (b.rating || 0) - (a.rating || 0) : a.name.localeCompare(b.name, 'pl'));
     $('#result-count').textContent = `Znalezione pasieki: ${filtered.length}`;
+    $('#map-empty').hidden = filtered.length > 0;
+    if (currentView === 'list') renderList();
+    renderMarkers();
+    syncUrl();
+  }
+  function renderList() {
     const result = $('#apiary-results');
     result.replaceChildren(...filtered.map(card));
     if (!filtered.length) result.append(empty('Brak pasiek dla tych filtrów', 'Zwiększ promień, wybierz inne produkty lub wyczyść filtry.', btn('Wyczyść filtry', reset)));
-    renderMarkers();
-    syncUrl();
   }
   function card(a) {
     const types = [...new Set(a.products.map(p => PRODUCTS.find(t => t.id === p.type)?.name || p.type))].slice(0, 3);
@@ -806,7 +841,7 @@ function initMap() {
       outer: for (let i = 0; i < groups.length; i++) {
         for (let j = i + 1; j < groups.length; j++) {
           const first = groups[i], second = groups[j];
-          if (first.point.distanceTo(second.point) >= 34) continue;
+          if (first.point.distanceTo(second.point) >= 44) continue;
           const count = first.apiaries.length + second.apiaries.length;
           first.point = first.point.multiplyBy(first.apiaries.length)
             .add(second.point.multiplyBy(second.apiaries.length)).divideBy(count);
@@ -825,12 +860,20 @@ function initMap() {
         icon: L.divIcon({
           className: 'marker',
           html: grouped ? String(apiaries.length) : '',
-          iconSize: [34, 34]
+          iconSize: [44, 44]
         }),
         title,
         alt: title,
         keyboard: true
       }).addTo(layer);
+      const markerElement = marker.getElement();
+      markerElement.setAttribute('aria-label', title);
+      markerElement.addEventListener('keydown', event => {
+        if (event.key !== 'Enter' && event.key !== ' ') return;
+        event.preventDefault();
+        event.stopPropagation();
+        marker.fire('click');
+      });
       if (grouped) {
         marker.on('click', () => {
           const sameLocation = apiaries.every(item => item.lat === a.lat && item.lng === a.lng);
@@ -843,7 +886,7 @@ function initMap() {
           }
         });
       } else {
-        marker.bindPopup(el('div', {}, [el('strong', {}, a.name), el('p', {}, a.city), btn('Profil i oferta', () => profile(a), 'button')]));
+        marker.on('click', () => profile(a));
       }
     });
   }
@@ -868,11 +911,16 @@ function initMap() {
     }).bindTooltip('Twoja lokalizacja').addTo(map);
   }
   function updateView(view) {
+    currentView = view;
     $$('[data-view]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.view === view)));
     $('#map-layout').classList.toggle('list-only', view === 'list');
+    $('#apiary-results').hidden = view !== 'list';
+    $('#sort-control').hidden = view !== 'list';
+    if (view === 'list') renderList();
     if (view === 'split' && map) requestAnimationFrame(() => map.invalidateSize());
   }
   function reset() {
+    clearTimeout(searchTimer);
     geoToken++;
     $('#filters').reset();
     selected.clear();
@@ -890,10 +938,13 @@ function initMap() {
   $('#filters').addEventListener('submit', e => e.preventDefault());
   $('#filters').addEventListener('input', e => {
     if (e.target.id === 'radius') $('#radius-value').textContent = Number(e.target.value) ? e.target.value + ' km' : 'bez limitu';
-    if (e.target.matches('input,select')) render();
+    clearTimeout(searchTimer);
+    if (e.target.id === 'map-search') searchTimer = setTimeout(render, 180);
+    else if (e.target.matches('input,select')) render();
   });
   $('#sort').addEventListener('change', render);
   $('#reset-filters').addEventListener('click', reset);
+  $('#map-reset').addEventListener('click', reset);
   $$('[data-view]').forEach(b => b.addEventListener('click', () => updateView(b.dataset.view)));
   registerMapTool(query => {
     reset();
