@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
+  <title>Strzałka nawigacyjna — Miodna Mapa</title>
+  <circle cx="32" cy="33" r="27" fill="#292B23" fill-opacity=".07"/>
+  <circle cx="32" cy="31" r="27" fill="#FAF8F2" stroke="#D9D8CD"/>
+  <circle cx="32" cy="31" r="22" fill="#FAEDC7"/>
+  <path d="M22.4 28.7 40.6 20.8C42.3 20.1 43.7 21.5 43 23.2L35.1 41.4C34.4 43 32.2 42.9 31.7 41.2L29.3 34.2C29.1 33.5 28.5 32.9 27.8 32.7L22.6 31.1C21.4 30.7 21.3 29.2 22.4 28.7Z" fill="#354A39"/>
+  <path d="m31.2 31.3 8.1-7.2-6 13.9-1.5-4.5c-.3-.8-.5-1.5-.6-2.2Z" fill="#EDB640"/>
+</svg>

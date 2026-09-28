@@ -43,7 +43,13 @@
   </div>
   <div class="map-explorer">
     <aside class="filter-sidebar" aria-label="Wyszukiwanie i filtry">
-      <button type="button" id="filter-toggle" class="secondary" aria-expanded="false" aria-controls="filter-panel">Szukaj i filtruj <span id="active-filter-count"></span></button>
+      <div class="sidebar-controls">
+        <button type="button" id="filter-toggle" aria-expanded="true" aria-controls="filter-panel" aria-label="Zwiń filtry" aria-describedby="active-filter-count" title="Zwiń filtry">
+          <img src="assets/map-navigation-arrow.svg" width="48" height="48" alt="" aria-hidden="true">
+          <span id="active-filter-count" aria-live="polite"></span>
+        </button>
+        
+      </div>
       <div id="filter-panel">
   <form id="filters" class="filters" aria-labelledby="filters-title" aria-describedby="filters-help">
     <div class="filters-heading">
@@ -123,8 +129,10 @@
       <div class="map-layout" id="map-layout">
         <section class="map-pane" aria-label="Mapa lokalizacji pasiek">
           <div id="map" tabindex="0" aria-label="Mapa pasiek. Strzałki przesuwają mapę, plus i minus zmieniają przybliżenie. Tab wybiera znaczniki, Enter otwiera profil. Dostępny jest też widok Lista."></div>
-          <p id="map-status" class="map-status" role="status">Ładowanie mapy…</p>
-          <button class="secondary map-retry" id="map-retry" type="button" hidden>Spróbuj ponownie</button>
+          <div class="map-feedback">
+            <p id="map-status" class="map-status" role="status">Ładowanie mapy…</p>
+            <button class="secondary map-retry" id="map-retry" type="button" hidden>Spróbuj ponownie</button>
+          </div>
           <div id="map-empty" class="map-empty" hidden><strong>Nie znaleziono pasiek</strong><p>Zmień miejsce lub wyczyść filtry.</p><button type="button" class="secondary" id="map-reset">Wyczyść filtry</button></div>
         </section>
         <aside id="apiary-results" class="apiary-results" aria-label="Lista pasiek" hidden></aside>

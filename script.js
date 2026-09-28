@@ -688,13 +688,20 @@ function initMap() {
   const params = new URLSearchParams(location.search);
   let currentView = 'split', searchTimer;
   const mobileFilters = matchMedia('(max-width: 800px)');
+  let sidebarCollapsed = mobileFilters.matches;
   function setFiltersOpen(open) {
-    $('#filter-toggle').setAttribute('aria-expanded', String(open));
-    $('#filter-panel').hidden = mobileFilters.matches && !open;
+    sidebarCollapsed = !open;
+    $('.map-explorer').classList.toggle('filters-collapsed', sidebarCollapsed);
+    $('#filter-panel').hidden = !open;
     $('.map-stage').inert = mobileFilters.matches && open;
+    const toggle = $('#filter-toggle');
+    const label = sidebarCollapsed ? 'Rozwiń filtry' : 'Zwiń filtry';
+    toggle.setAttribute('aria-expanded', String(!sidebarCollapsed));
+    toggle.setAttribute('aria-label', label);
+    toggle.title = label;
   }
-  setFiltersOpen(false);
-  mobileFilters.addEventListener('change', () => setFiltersOpen(false));
+  setFiltersOpen(!sidebarCollapsed);
+  mobileFilters.addEventListener('change', () => setFiltersOpen(!sidebarCollapsed));
   $('#filter-toggle').addEventListener('click', () => setFiltersOpen($('#filter-toggle').getAttribute('aria-expanded') !== 'true'));
   $('#show-map').addEventListener('click', () => {
     updateView('split');
