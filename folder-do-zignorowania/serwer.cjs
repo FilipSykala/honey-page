@@ -4,11 +4,11 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { execFile } = require('node:child_process');
 
-const root = __dirname;
+const root = path.resolve(__dirname, '..');
 const port = Number(process.env.PORT || 8765);
 const host = process.env.HOST || '0.0.0.0';
 const address = 'http://127.0.0.1:' + port;
-const api = require('./pasieki-api.cjs')(process.env.APIARY_DATA_DIR || path.join(root, 'dane-pasiek'));
+const api = require('./pasieki-api.cjs')(process.env.APIARY_DATA_DIR || path.join(__dirname, 'dane-pasiek'));
 const mimeTypes = {
   '.html': 'text/html; charset=utf-8',
   '.css': 'text/css; charset=utf-8',
@@ -40,7 +40,7 @@ const server = http.createServer((request, response) => {
   }
   // Serve only public site files; the store contains private ownership hashes.
   const publicPath = pathname.endsWith('/') ? pathname + 'index.html' : pathname;
-  if (!(/^\/[a-z0-9-]+\.html$/.test(publicPath) || ['/script.js', '/style.css', '/dane-pasiek/przykladowe.json'].includes(publicPath) || /^\/(assets|vendor)\/[a-zA-Z0-9_./-]+$/.test(publicPath)) || publicPath.split('/').some(part => part.startsWith('.'))) {
+  if (!(/^\/[a-z0-9-]+\.html$/.test(publicPath) || ['/script.js', '/pasieki.js', '/licznikPasiek.js', '/style.css', '/dane-pasiek/przykladowe.json'].includes(publicPath) || /^\/(assets|vendor)\/[^\\\x00-\x1f]+$/.test(publicPath)) || publicPath.split('/').some(part => part.startsWith('.'))) {
     response.writeHead(404); response.end('Nie znaleziono pliku.'); return;
   }
   const filename = path.resolve(root, '.' + (pathname.endsWith('/') ? pathname + 'index.html' : pathname));
@@ -67,7 +67,7 @@ const server = http.createServer((request, response) => {
 
 server.on('error', error => {
   console.error(error.code === 'EADDRINUSE'
-    ? 'Port 8765 jest zajety. Zamknij poprzedni podglad strony i uruchom ponownie.'
+    ? 'Port ' + port + ' jest zajety. Zamknij poprzedni podglad strony i uruchom ponownie.'
     : 'Nie mozna uruchomic podgladu: ' + error.message);
   process.exitCode = 1;
 });

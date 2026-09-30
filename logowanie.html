@@ -11,6 +11,7 @@
     <script defer src="vendor/leaflet.js">
     </script>
     <script defer src="https://kit.fontawesome.com/5535fb1062.js" crossorigin="anonymous"></script>
+    <script defer src="pasieki.js"></script>
     <script defer src="script.js">
     </script>
   </head>
@@ -60,6 +61,11 @@
       <p class="eyebrow">POKAŻ, CO TWORZYSZ</p>
       <h2 id="editor-title">Dodaj pasiekę</h2>
     </div>
+  </div>
+  <div class="notice">
+    <p>Chcesz przetestować stronę? Utwórz pasiekę z losowymi danymi bez wypełniania formularza. Wpis testowy będzie widoczny na wspólnej mapie.</p>
+    <button id="create-test-apiary" type="button" class="secondary">Utwórz testową pasiekę</button>
+    <p id="test-apiary-status" role="status" aria-live="polite"></p>
   </div>
   <div id="apiary-progress" class="apiary-progress" role="progressbar" aria-label="Postęp formularza" aria-valuemin="0" aria-valuemax="5" aria-valuenow="1"><span></span></div>
   <p id="apiary-step-status" role="status"></p>

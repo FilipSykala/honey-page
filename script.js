@@ -437,20 +437,21 @@ function productDetail(p) {
 function productCard(p) {
   const cover = el('div', {
     class: 'product-visual'
-  }, [imageNode(p.category === 'miod' ? 'assets/miod.webp' : 'assets/produkty.webp', ''), el('span', {
-    class: 'tag'
-  }, CATEGORIES[p.category])]);
+  }, [imageNode(p.category === 'miod' ? 'assets/miod.webp' : 'assets/produkty.webp', ''),  el('div', {
+    class: 'tag licznikPasiek',
+    'data-produkt': p.id
+  }, 'Pasieki: 0')]);
   const body = el('div', {
     class: 'product-body'
-  }, [el('h3', {}, p.name), el('p', {}, p.description), el('div', {
+  }, [el('h3', {}, p.name), el('p', {}, p.description),  el('div', {
     class: 'product-bottom'
   }, [el('span', {}, 'Poznaj produkt'), el('span', {
     'aria-hidden': 'true'
-  }, '↗')])]);
+  },  '↗')])]);
   return el('article', {
     class: 'product-card'
   }, el('button', {
-    type: 'button',
+    type: 'button', 
     onclick: () => productDetail(p)
   }, [cover, body]));
 }
@@ -479,6 +480,7 @@ function initHome() {
     select.value = apiaries.some(a => a.id === selected) ? selected : '';
     render();
   });
+  const aktualizujLiczniki = monitorujLicznikPasiek(() => apiaries);
   let category = 'all',
     expanded = false;
   const more = btn('Pokaż pozostałe produkty', () => {
@@ -505,6 +507,7 @@ function initHome() {
     const visible = category === 'all' && !q && !apiary && !expanded ? matches.slice(0, 6) : matches;
     $('#catalog-selection').textContent = CATEGORIES[category] + (apiary ? ' · ' + apiary.name : '');
     $('#catalog-grid').replaceChildren(...visible.map(productCard));
+    aktualizujLiczniki();
     $('#catalog-count').textContent = `Produkty: ${visible.length} z ${matches.length}`;
     more.hidden = visible.length === matches.length;
     more.textContent = `Pokaż pozostałe produkty (${matches.length - visible.length})`;
@@ -1014,6 +1017,7 @@ function initMap() {
   render();
 }
 function initPanel() {
+  initTestowePasieki(PRODUCTS, saveApiary);
   let editingRevision, saving = false;
   document.addEventListener('apiaries-updated', () => renderOwned());
   const form = $('#apiary-form');
